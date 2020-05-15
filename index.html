@@ -106,33 +106,22 @@
             <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p>
             <br>
 
-            <h6>Ansibleモジュール</h6>
+            <h5>Ansibleモジュール</h5>
             <ol>
               <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
               <p>標準モジュールでカバーしていない項目については、fortiosconfigモジュールを使って設定が可能です。</p>
-              <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)を必要とします。</p>
-              <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9を推奨しています。</p>
+              <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)が必要です。</p>
+              <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9が推奨です。</p>
               <p>Ansible 2.8以降では、更にhttpapi(Ansibleプラグイン)に対応していますので、fortiosapi(pythonライブラリ)のインストールが不要です。</p>
-              <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になり、利用ケースも増えるものと思います。</p>
-              <p>特別な事情が場合を覗いて、Ansible 2.9が推奨です！</p>
+              <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になるため、ぜひAnsible 2.9をご利用ください。</p>
               <p> <img src="/ansible_demo/img/01.png"> </p>
             </ol>
-        <h6>Collectionの活用を</h6>
+        <h5>Collectionの活用を</h5>
             <ol>
               <li value="1">AA
                 <pre>config system virtual-wan-link</pre> </li>
               <li value="2">BB
                 <pre>config system virtual-wan-link</pre> </ol>
-            <h6>環境</h6>
-            <ol>
-              <li value="1">AAAAA
-                <pre>config system virtual-wan-link</pre> </li>
-              <li value="2">準備するもの
-                <p>Ubuntu 18.04</p>
-                <p>FortiGate KVM qcows</p>
-                <p>FortiGate VMライセンス</p>
-              </li>
-            </ol>
           </div>
         </div>
       </div>
@@ -150,13 +139,12 @@
 
         <h6>Ansibleモジュール</h6>
         <ol>
-          <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
-          <p>標準モジュールでカバーしていない項目については、fortiosconfigモジュールを使って設定が可能です。</p>
-          <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)を必要とします。</p>
-          <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9を推奨しています。</p>
-          <p>Ansible 2.8以降では、更にhttpapi(Ansibleプラグイン)に対応していますので、fortiosapi(pythonライブラリ)のインストールが不要です。</p>
-          <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になり、利用ケースも増えるものと思います。</p>
-          <p>特別な事情が場合を覗いて、Ansible 2.9が推奨です！</p>
+        <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
+        <p>標準モジュールでカバーしていない項目については、fortiosconfigモジュールを使って設定が可能です。</p>
+        <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)が必要です。</p>
+        <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9が推奨です。</p>
+        <p>Ansible 2.8以降では、更にhttpapi(Ansibleプラグイン)に対応していますので、fortiosapi(pythonライブラリ)のインストールが不要です。</p>
+        <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になるため、ぜひAnsible 2.9をご利用ください。</p>
           <p> <img src="/ansible_demo/img/01.png"> </p>
         </ol>
 
@@ -166,16 +154,6 @@
               <pre>config system virtual-wan-link</pre> </li>
             <li value="2">BB
               <pre>config system virtual-wan-link</pre> </ol>
-          <h6>環境</h6>
-          <ol>
-            <li value="1">AAAAA
-              <pre>config system virtual-wan-link</pre> </li>
-            <li value="2">準備するもの
-              <p>Ubuntu 18.04</p>
-              <p>FortiGate KVM qcows</p>
-              <p>FortiGate VMライセンス</p>
-            </li>
-          </ol>
         </div>
       </div>
     </div>
