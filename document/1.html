@@ -180,10 +180,25 @@
                     <p>このシェルスクリプトで、kvm、curl、openssh-clientなどインストールされます。</p>
                     <p>ssh鍵生成時にダイアログが表示されます。すべてEnterで構いません。</p>
                     <p>最後に<code>sudo reboot</code>でリブートします。</p></li>
-                    <li value="4">pip3のインストール
-<pre>    $ sudo apt install -y python3-pip</pre></li>
-                    <li value="5">Ansibleインストール
-<pre>    $ pip3 install ansible --user</pre></li>
+                    <li value="4">pip3、Ansibleのインストール
+<pre><code>
+"    sudo apt install -y python3-pip
+     pip3 install ansible --user"</code></pre>
+     <button type="button" class="copyButton_2Cs1XD" id="copyButton_2Cs1XD" aria-live="polite" onclick="(function() {
+        var textarea = document.createElement('textarea');
+        var button = document.querySelector('#copyButton_2Cs1XD');
+
+        textarea.innerHTML = '\n<div class=\'cool-container\'>\n    <p class=\'cool-description\'>Get ready for...</p>\n    <ul class=\'cool-list\'>\n        <li class=\'cool-item\'>rainbows</li>\n        <li class=\'cool-item\'>and</li>\n        <li class=\'cool-item\'>unicorns</li>\n    </ul>\n</div>';
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        button.innerHTML = 'Copied!';
+        setTimeout(function() { button.innerHTML = 'Click to copy'; }, 1500);
+
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+    })();">Click to copy</button>
+    </li>
                     <li value="6">PATHを通す
 <pre>    $ echo "export PATH=$PATH:/home/${USER}/.local/bin" >>.bashrc
     $ source ~/.bashrc</pre></li>
