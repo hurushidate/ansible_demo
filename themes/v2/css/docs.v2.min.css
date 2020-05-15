@@ -202,7 +202,7 @@ a {
     .ftnt-header .site-banner h5 {
       color: #FFF;
       font-weight: bold !important;
-      font-family: "HelveticaNeueLT-Light",Helvetica,Arial,sans-serif;
+      font-family: "M PLUS 1p", "HelveticaNeueLT-Light",Helvetica,Arial,sans-serif;
       font-size: 17pt; }
   .ftnt-header .nav-search input[type="text"] {
     border: 0;
@@ -262,7 +262,7 @@ footer {
     .breadcrumbs .item:not(:last-child)::after {
       content: '>';
       margin: 0 10px;
-      font-family: cursive; }
+      font-family: "M PLUS 1p", cursive; }
   .breadcrumbs a {
     text-decoration: none;
     color: #22446b; }
@@ -402,7 +402,7 @@ footer {
   color: #5b5c5e; }
 
 .docs-document .document-content {
-  font-family: "HelveticaNeueLT-Light",Helvetica,Arial,sans-serif; }
+  font-family: "M PLUS 1p", "HelveticaNeueLT-Light",Helvetica,Arial,sans-serif; }
   .docs-document .document-content #content img, .docs-document .document-content .content img {
     max-width: 100%; }
   .docs-document .document-content.src-md pre code {
@@ -908,7 +908,7 @@ body {
           color: #FFF; }
 
 li.toc.opened:before {
-  font-family: "Font Awesome 5 Free";
+  font-family: "M PLUS 1p", "Font Awesome 5 Free";
   font-weight: 900;
   font-size: 12px;
   margin: 0 5px 0 -15px;
@@ -916,7 +916,7 @@ li.toc.opened:before {
   content: "\f056"; }
 
 li.toc.closed:before {
-  font-family: "Font Awesome 5 Free";
+  font-family: "M PLUS 1p", "Font Awesome 5 Free";
   font-weight: 900;
   font-size: 12px;
   margin: 0 5px 0 -15px;
@@ -927,7 +927,7 @@ li.toc.closed ul {
   display: none; }
 
 li.toc.leaf:before {
-  font-family: "Font Awesome 5 Free";
+  font-family: "M PLUS 1p", "Font Awesome 5 Free";
   font-weight: 900;
   font-size: 12px;
   margin: 0 5px 0 -15px;
@@ -1342,36 +1342,36 @@ li.toc .toc-tag {
       .search-results .search-result.page .result-details .result-meta div:first-child, .search-results .search-result.document .result-details .result-meta div:first-child {
         padding-left: 0; }
       .search-results .search-result.page .result-details .result-meta div.result-date:before, .search-results .search-result.document .result-details .result-meta div.result-date:before {
-        font-family: "Font Awesome 5 Free";
+        font-family: "M PLUS 1p", "Font Awesome 5 Free";
         font-size: 12px;
         padding-right: 5px;
         content: "\f073"; }
       .search-results .search-result.page .result-details .result-meta div.result-count:before, .search-results .search-result.document .result-details .result-meta div.result-count:before {
-        font-family: "Font Awesome 5 Free";
+        font-family: "M PLUS 1p", "Font Awesome 5 Free";
         font-size: 12px;
         padding-right: 5px;
         content: "\f0c5"; }
       .search-results .search-result.page .result-details .result-meta div.result-downloads:before, .search-results .search-result.document .result-details .result-meta div.result-downloads:before {
-        font-family: "Font Awesome 5 Free";
+        font-family: "M PLUS 1p", "Font Awesome 5 Free";
         font-size: 12px;
         padding-right: 5px;
         font-weight: 900;
         content: "\f019"; }
       .search-results .search-result.page .result-details .result-meta div.result-product:before, .search-results .search-result.document .result-details .result-meta div.result-product:before {
-        font-family: "Font Awesome 5 Free";
+        font-family: "M PLUS 1p", "Font Awesome 5 Free";
         font-size: 12px;
         padding-right: 5px;
         font-weight: 900;
         content: "\f0e8"; }
       .search-results .search-result.page .result-details .result-meta div.result-document:before, .search-results .search-result.document .result-details .result-meta div.result-document:before {
-        font-family: "Font Awesome 5 Free";
+        font-family: "M PLUS 1p", "Font Awesome 5 Free";
         font-size: 12px;
         padding-right: 5px;
         font-weight: 900;
         content: "\f02d"; }
 
 .search-results .search-result.document .result-details .result-title:before {
-  font-family: "Font Awesome 5 Free";
+  font-family: "M PLUS 1p", "Font Awesome 5 Free";
   font-size: 12px;
   padding-right: 5px;
   font-weight: 900;
@@ -1379,7 +1379,7 @@ li.toc .toc-tag {
   font-size: 18px; }
 
 .search-results .search-result.page .result-details .result-title:before {
-  font-family: "Font Awesome 5 Free";
+  font-family: "M PLUS 1p", "Font Awesome 5 Free";
   font-size: 12px;
   padding-right: 5px;
   content: "\f15b";
@@ -1400,7 +1400,7 @@ li.toc .toc-tag {
   .version-family-select ul.version-family-items li.version-family-item {
     margin: 0;
     padding: 0 8px 0 0;
-    font-family: "HelveticaNeueW01-75Bold", Helvetica, Arial, sans-serif;
+    font-family: "M PLUS 1p", "HelveticaNeueW01-75Bold", Helvetica, Arial, sans-serif;
     color: #465153;
     display: inline-block;
     float: left; }
@@ -1491,7 +1491,7 @@ section.bsmi {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem; }
   section.bsmi .display-5 {
-    font-family: 'Source Sans Pro',sans-serif;
+    font-family: "M PLUS 1p", 'Source Sans Pro',sans-serif;
     font-size: 1.4rem; }
   section.bsmi .mbr-bold {
     font-weight: 700; }
@@ -1502,7 +1502,7 @@ section.bsmi {
     color: #afafaf;
     transition: all 200ms ease-out; }
   section.bsmi .display-6 {
-    font-family: 'Source Sans Pro',sans-serif;
+    font-family: "M PLUS 1p", 'Source Sans Pro',sans-serif;
     font-size: 1rem; }
 
 #fortinetone .heading {
@@ -1597,7 +1597,7 @@ section.bsmi {
     mc-master-page: url("../MasterPages/MasterPage.flmsp"); }
   .document-content body {
     margin: 0;
-    font-family: "HelveticaNeueLT Std", Arial, "Helvetica LT Std", "sans-serif";
+    font-family: "M PLUS 1p", "HelveticaNeueLT Std", Arial, "Helvetica LT Std", "sans-serif";
     font-size: 16px;
     line-height: 1.25em;
     text-align: left;
@@ -3575,7 +3575,7 @@ body.home2 {
         color: white; }
       body.home2 .global-search input::before, body.home2 .filter-all-products input::before {
         content: "\f002";
-        font-family: "Font Awesome 5 Free";
+        font-family: "M PLUS 1p", "Font Awesome 5 Free";
         left: -5px;
         position: absolute;
         top: 0; }
@@ -4112,7 +4112,7 @@ ftnt-logo {
       right: 10px;
       width: 50px;
       height: 50px;
-      font-family: "Font Awesome 5 Free";
+      font-family: "M PLUS 1p", "Font Awesome 5 Free";
       font-weight: 900;
       color: #FFF;
       font-size: 25pt;
@@ -4170,7 +4170,7 @@ ftnt-logo {
           font-size: 10pt;
           border-bottom: thin solid #d7d7d7; }
           .home3 .products-menu products-bar-list > span::after {
-            font-family: "Font Awesome 5 Free";
+            font-family: "M PLUS 1p", "Font Awesome 5 Free";
             font-weight: 900;
             content: '\f105';
             float: right; }
@@ -4203,7 +4203,7 @@ ftnt-logo {
               .home3 .products-menu products-bar-list .products-list products-bar-item .products-bar-item-container.leaf > a {
                 color: #000; }
         .home3 .products-menu products-bar-list.open > span::after {
-          font-family: "Font Awesome 5 Free";
+          font-family: "M PLUS 1p", "Font Awesome 5 Free";
           font-weight: 900;
           content: '\f107'; }
     .home3 .splash {
