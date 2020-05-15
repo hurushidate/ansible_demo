@@ -1,4 +1,3 @@
-
 <html lang="ja">
 <head>
   <style type="text/css">
@@ -8,12 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scale=0">
   <title>Ansible x FortiGate</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous" >
-  <link rel="stylesheet" href="/ansible_demo/themes/v2/css/vendor.min.css" >
-  <link rel="stylesheet" href="/ansible_demo/themes/v2/css/docs.v2.min.css" >
-  <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p&amp;subset=japanese" rel="stylesheet">
-</head>
-
+  <link rel="stylesheet" href="/ansible_demo/themes/v2/css/vendor.min.css">
+  <link rel="stylesheet" href="/ansible_demo/themes/v2/css/docs.v2.min.css">
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p&amp;subset=japanese" rel="stylesheet"> </head>
 <body ng-app="docs" class="ng-scope">
   <div class="ftnt-header v3 d-flex p-3 flex-row bg-red align-items-center border-bottom box-shadow justify-content-between">
     <div class="site-banner" onclick="window.location='#'"> <img class="docs-logo" src="/ansible_demo/img/logo.svg">
@@ -66,28 +62,28 @@
       <div class="contents py-md-2">
         <h3> Table of contents </h3>
         <ul class="toc" style="padding-left: 15px">
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/0.html">
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/0.html">
                           はじめに
                       </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/1.html">
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/1.html">
                           ラボ環境の確認
                       </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/2.html">
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/2.html">
                           1: Collectionのインストール
                       </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/3.html">
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/3.html">
                           2: サンプルPlaybookの実行
                       </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/4.html">
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/4.html">
                           3: Playbookの作成 (factsの利用)
                       </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/5.html">
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/5.html">
                           4: インターフェースの設定
                       </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/6.html">
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/6.html">
                           5: ファイアウォールポリシーの設定
                   </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/7.html">
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/7.html">
                           6: fortiosapiを使ってみる
               </a> </li>
           <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/change-log.html">
@@ -103,9 +99,7 @@
             <h1>はじめに</h1>
             <p>このコンテンツは、AnsibleでFortiGateを設定するためのチュートリアルです。</p>
             <p>Ansibleの特徴である「気軽にはじめられる」を体験していただくために、さまざまな演習を用意しています。</p>
-            <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p>
-            <br>
-
+            <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p> <br>
             <h4>Ansibleモジュール</h4>
             <ol>
               <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
@@ -116,16 +110,16 @@
               <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になるため、ぜひAnsible 2.9をご利用ください。</p>
               <p> <img src="/ansible_demo/img/01.png"> </p>
             </ol>
-        <h4>Collectionを活用しましょう</h4>
+            <h4>Collectionを活用しましょう</h4>
             <ol>
               <p>Collectionは、モジュール、プラグイン、ロール、プレイブックなどのコンテンツを配布するための新たな仕組みです。</p>
               <p>Ansibleの標準モジュールとは切り離して管理ができるため、Ansibleの新規バージョンのリリースを待たずに、モジュールの修正、更新、名前変更などを行うことができます。</p>
-              <p>CollectionはAnsible 2.9でフルサポートされるようになり、FortiGate用のCollectionもすでに公開しています。<p>
-              <p><a href="https://galaxy.ansible.com/fortinet/fortios">https://galaxy.ansible.com/fortinet/fortios</a></p>
-              <p><a href="https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection">https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection</a></p>
-              <p>Collectionのダウンロードは、ansible-galaxyコマンド、もしくは上記のgalaxyページからtar形式でダウンロードできます。</p>
-              <pre>$ ansible-galaxy collection install fortinet.fortios</pre>
-            </ol>
+              <p>CollectionはAnsible 2.9でフルサポートされるようになり、FortiGate用のCollectionもすでに公開しています。
+                <p>
+                  <p><a href="https://galaxy.ansible.com/fortinet/fortios">https://galaxy.ansible.com/fortinet/fortios</a></p>
+                  <p><a href="https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection">https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection</a></p>
+                  <p>Collectionのダウンロードは、ansible-galaxyコマンド、もしくは上記のgalaxyページからtar形式でダウンロードできます。</p>
+                  <pre>$ ansible-galaxy collection install fortinet.fortios</pre> </ol>
           </div>
         </div>
       </div>
@@ -135,33 +129,30 @@
     <div class="document-content src-mc d-md-none">
       <div id="content">
         <div role="main" id="mc-main-content">
-        <h1>はじめに</h1>
-        <p>このコンテンツは、AnsibleでFortiGateを設定するためのチュートリアルです。</p>
-        <p>Ansibleの特徴である「気軽にはじめられる」を体験していただくために、さまざまな演習を用意しています。</p>
-        <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p>
-        <br>
-
-        <h4>Ansibleモジュール</h4>
-        <ol>
-        <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
-        <p>標準モジュールでカバーしていない項目については、fortiosconfigモジュールを使って設定が可能です。</p>
-        <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)が必要です。</p>
-        <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9が推奨です。</p>
-        <p>Ansible 2.8以降では、更にhttpapi(Ansibleプラグイン)に対応していますので、fortiosapi(pythonライブラリ)のインストールが不要です。</p>
-        <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になるため、ぜひAnsible 2.9をご利用ください。</p>
-          <p> <img src="/ansible_demo/img/01.png"> </p>
-        </ol>
-
-        <h4>Collectionの活用を</h4>
-        <ol>
-          <p>Collectionは、モジュール、プラグイン、ロール、プレイブックなどのコンテンツを配布するための新たな仕組みです。</p>
-          <p>Ansibleの標準モジュールとは切り離して管理ができるため、Ansibleの新規バージョンのリリースを待たずに、モジュールの修正、更新、名前変更などを行うことができます。</p>
-          <p>CollectionはAnsible 2.9でフルサポートされるようになり、FortiGate用のCollectionもすでに公開しています。<p>
-          <p><a href="https://galaxy.ansible.com/fortinet/fortios">https://galaxy.ansible.com/fortinet/fortios</a></p>
-          <p><a href="https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection">https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection</a></p>
-          <p>Collectionのダウンロードは、ansible-galaxyコマンド、もしくは上記のgalaxyページからtar形式でダウンロードできます。</p>
-          <pre>$ ansible-galaxy collection install fortinet.fortios</pre>
-        </ol>
+          <h1>はじめに</h1>
+          <p>このコンテンツは、AnsibleでFortiGateを設定するためのチュートリアルです。</p>
+          <p>Ansibleの特徴である「気軽にはじめられる」を体験していただくために、さまざまな演習を用意しています。</p>
+          <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p> <br>
+          <h4>Ansibleモジュール</h4>
+          <ol>
+            <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
+            <p>標準モジュールでカバーしていない項目については、fortiosconfigモジュールを使って設定が可能です。</p>
+            <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)が必要です。</p>
+            <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9が推奨です。</p>
+            <p>Ansible 2.8以降では、更にhttpapi(Ansibleプラグイン)に対応していますので、fortiosapi(pythonライブラリ)のインストールが不要です。</p>
+            <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になるため、ぜひAnsible 2.9をご利用ください。</p>
+            <p> <img src="/ansible_demo/img/01.png"> </p>
+          </ol>
+          <h4>Collectionの活用を</h4>
+          <ol>
+            <p>Collectionは、モジュール、プラグイン、ロール、プレイブックなどのコンテンツを配布するための新たな仕組みです。</p>
+            <p>Ansibleの標準モジュールとは切り離して管理ができるため、Ansibleの新規バージョンのリリースを待たずに、モジュールの修正、更新、名前変更などを行うことができます。</p>
+            <p>CollectionはAnsible 2.9でフルサポートされるようになり、FortiGate用のCollectionもすでに公開しています。
+              <p>
+                <p><a href="https://galaxy.ansible.com/fortinet/fortios">https://galaxy.ansible.com/fortinet/fortios</a></p>
+                <p><a href="https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection">https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection</a></p>
+                <p>Collectionのダウンロードは、ansible-galaxyコマンド、もしくは上記のgalaxyページからtar形式でダウンロードできます。</p>
+                <pre>$ ansible-galaxy collection install fortinet.fortios</pre> </ol>
         </div>
       </div>
     </div>
