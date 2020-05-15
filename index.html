@@ -101,23 +101,23 @@
         <div id="content">
           <div role="main" id="mc-main-content">
             <h1>はじめに</h1>
-            <p>このコンテンツは</p>
-            <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-            <p> <img src="/ansible_demo/img/01.png"> </p>
-            <h6>FortiOSのAnsbile</h6>
+            <p>このコンテンツは、AnsibleでFortiGateを設定するためのチュートリアルです。</p>
+            <p>Ansibleの特徴である「気軽にはじめられる」を体験していただくために、さまざまな演習を用意しています。</p>
+            <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p>
+            <br>
+
+            <h6>Ansibleモジュール</h6>
             <ol>
-              <li value="1">AAA
-                <pre>config system virtual-wan-link</pre> </li>
-              <li value="2">BBB
-                <pre>config system virtual-wan-link</pre>
-                <p>After the interfaces are configured, the new spoke will function like the other spokes.</p>
-              </li>
-              <li value="3">CCC
-                <pre>config system virtual-wan-link</pre>
-                <p>After the interfaces are configured, the new spoke will function like the other spokes.</p>
-              </li>
+              <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
+              <p>標準モジュールでカバーしていない項目については、fortiosconfigモジュールを使って設定が可能です。</p>
+              <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)を必要とします。</p>
+              <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9を推奨しています。</p>
+              <p>Ansible 2.8以降では、更にhttpapi(Ansibleプラグイン)に対応していますので、fortiosapi(pythonライブラリ)のインストールが不要です。</p>
+              <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になり、利用ケースも増えるものと思います。</p>
+              <p>特別な事情が場合を覗いて、Ansible 2.9が推奨です！</p>
+              <p> <img src="/ansible_demo/img/01.png"> </p>
             </ol>
-            <h6>本チュートリアルの概要</h6>
+        <h6>Collectionの活用を</h6>
             <ol>
               <li value="1">AA
                 <pre>config system virtual-wan-link</pre> </li>
@@ -142,24 +142,25 @@
     <div class="document-content src-mc d-md-none">
       <div id="content">
         <div role="main" id="mc-main-content">
-          <h1>はじめに</h1>
-          <p>xxxxxxxxxxxxxxxxxxxxx</p>
-          <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <h1>はじめに</h1>
+        <p>このコンテンツは、AnsibleでFortiGateを設定するためのチュートリアルです。</p>
+        <p>Ansibleの特徴である「気軽にはじめられる」を体験していただくために、さまざまな演習を用意しています。</p>
+        <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p>
+        <br>
+
+        <h6>Ansibleモジュール</h6>
+        <ol>
+          <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
+          <p>標準モジュールでカバーしていない項目については、fortiosconfigモジュールを使って設定が可能です。</p>
+          <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)を必要とします。</p>
+          <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9を推奨しています。</p>
+          <p>Ansible 2.8以降では、更にhttpapi(Ansibleプラグイン)に対応していますので、fortiosapi(pythonライブラリ)のインストールが不要です。</p>
+          <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になり、利用ケースも増えるものと思います。</p>
+          <p>特別な事情が場合を覗いて、Ansible 2.9が推奨です！</p>
           <p> <img src="/ansible_demo/img/01.png"> </p>
-          <h6>FortiOSのAnsbile</h6>
-          <ol>
-            <li value="1">AAA
-              <pre>config system virtual-wan-link</pre> </li>
-            <li value="2">BBB
-              <pre>config system virtual-wan-link</pre>
-              <p>After the interfaces are configured, the new spoke will function like the other spokes.</p>
-            </li>
-            <li value="3">CCC
-              <pre>config system virtual-wan-link</pre>
-              <p>After the interfaces are configured, the new spoke will function like the other spokes.</p>
-            </li>
-          </ol>
-          <h6>本チュートリアルの概要</h6>
+        </ol>
+
+        <h6>Collectionの活用を</h6>
           <ol>
             <li value="1">AA
               <pre>config system virtual-wan-link</pre> </li>
