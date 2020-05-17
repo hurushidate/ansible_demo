@@ -1,4 +1,3 @@
-
 <html lang="ja">
 <head>
   <style type="text/css">
@@ -6,17 +5,16 @@
   </style>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1,user-scaExercise le=0">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scale=0">
   <title>Ansible x FortiGate</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous" >
-  <link rel="stylesheet" href="/ansible_demo/themes/v2/css/vendor.min.css" >
-  <link rel="stylesheet" href="/ansible_demo/themes/v2/css/docs.v2.min.css" >
-</head>
-
+  <link rel="stylesheet" href="/ansible_demo/themes/v2/css/vendor.min.css">
+  <link rel="stylesheet" href="/ansible_demo/themes/v2/css/docs.v2.min.css">
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p&amp;subset=japanese" rel="stylesheet"> </head>
 <body ng-app="docs" class="ng-scope">
   <div class="ftnt-header v3 d-flex p-3 flex-row bg-red align-items-center border-bottom box-shadow justify-content-between">
     <div class="site-banner" onclick="window.location='#'"> <img class="docs-logo" src="/ansible_demo/img/logo.svg">
-      <h5 class="my-0 mr-md-auto font-weight-normal">Fortinet Ansible チュートリアル</h5>
+      <h5 class="my-0 mr-md-auto font-weight-normal">Ansible チュートリアル</h5>
     </div>
     <div class="mobile-menu p-2 d-md-none"> <button id="mobile_menu_btn" class="navbar-toggler navbar-toggler-right navbar-icon" type="button">
                 <i class="fas fa-bars"></i>
@@ -34,104 +32,95 @@
                         はじめに
                     </a> </li>
       <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/1.html">
-                        ラボ環境の確認
+                        ラボ環境のセットアップ
                     </a> </li>
       <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/2.html">
-                        Exercise 1: Collectionのインストール
+                        Collectionのインストール
                     </a> </li>
       <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/3.html">
-                        Exercise 2: サンプルPlaybookの実行
+                        サンプルPlaybookの実行
                     </a> </li>
       <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/4.html">
-                        Exercise 3: Playbookの作成 (factsの利用)
+                        Playbookの作成 (factsの利用)
                     </a> </li>
       <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/5.html">
-                        Exercise 4: インターフェース設定のPlaybook
+                        インターフェース設定のPlaybook
                     </a> </li>
       <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/6.html">
-                        Exercise 5: ファイアウォールポリシーの設定
+                        ファイアウォールポリシーの設定
                 </a> </li>
       <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/7.html">
-                        Exercise 6: fortiosapiを使ってみる
+                        fortiosapiを使ってみる
             </a> </li>
       <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/change-log.html">
                         Change Log
                     </a> </li>
     </ul>
   </div>
-  <div class="breadcrumbs  mt-md-2 mb-md-3"> <span class="item  md-hide"><a href="#">Home</a></span> <span class="item "><a href="./0">FortiGate x Ansible</a></span> </div>
+  <div class="breadcrumbs  mt-md-2 mb-md-3"> <span class="item  md-hide"><a href="#">Home</a></span> <span class="item "><a href="#">FortiGate x Ansible</a></span> </div>
   <div class="ftnt-triple-col ftnt-multi-col d-md-flex flex-md-equal w-100 my-md-3 pl-md-3 docs-document" style="height: 197px;">
     <div class="mr-md-3 px-3 px-md-3 w-25 d-inline-block overflow-scroll column_left column-side">
       <div class="contents py-md-2">
         <h3> Table of contents </h3>
         <ul class="toc" style="padding-left: 15px">
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/0.html">
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/0.html">
                           はじめに
                       </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/1.html">
-                          ラボ環境の確認
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/1.html">
+                          ラボ環境のセットアップ
                       </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/2.html">
-                          Exercise 1: Collectionのインストール
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/2.html">
+                          Collectionのインストール
                       </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/3.html">
-                          Exercise 2: サンプルPlaybookの実行
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/3.html">
+                          サンプルPlaybookの実行
                       </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/4.html">
-                          Exercise 3: Playbookの作成 (factsの利用)
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/4.html">
+                          Playbookの作成 (factsの利用)
                       </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/5.html">
-                          Exercise 4: インターフェースの設定
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/5.html">
+                          インターフェースの設定
                       </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/6.html">
-                          Exercise 5: ファイアウォールポリシーの設定
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/6.html">
+                          ファイアウォールポリシーの設定
                   </a> </li>
-        <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/7.html">
-                          Exercise 6: fortiosapiを使ってみる
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/7.html">
+                          fortiosapiを使ってみる
               </a> </li>
           <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/change-log.html">
-                        Change Log
+                          Change Log
                     </a> </li>
         </ul>
       </div>
     </div>
-    <div class="mr-md-3 px-3 px-md-3 w-60 d-inline-block overflow-scroll column_center">
+    <div class="mr-md-3 px-3 px-md-3 w-70 d-inline-block overflow-scroll column_center">
       <div class="document-content src-mc mt-4">
         <div id="content">
           <div role="main" id="mc-main-content">
             <h1>はじめに</h1>
-            <p>xxxxxxxxxxxxxxxxxxxxx</p>
-            <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-            <p> <img src=""> </p>
-            <h6>FortiOSのAnsbile</h6>
+            <p>このコンテンツは、AnsibleでFortiGateを設定するためのチュートリアルです。</p>
+            <p>Ansibleの特徴である「気軽にはじめられる」を体験していただくために、さまざまな演習を用意しています。</p>
+            <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p> <br>
+            <h4>□ Ansibleモジュール</h4>
             <ol>
-              <li value="1">AAA
-                <pre>config system virtual-wan-link</pre> </li>
-              <li value="2">BBB
-                <pre>config system virtual-wan-link</pre>
-                <p>After the interfaces are configured, the new spoke will function like the other spokes.</p>
-              </li>
-              <li value="3">CCC
-                <pre>config system virtual-wan-link</pre>
-                <p>After the interfaces are configured, the new spoke will function like the other spokes.</p>
-              </li>
+              <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
+              <p>標準モジュールでカバーしていない項目については、fortiosconfigモジュールを使って設定が可能です。</p>
+              <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)が必要です。</p>
+              <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9が推奨です。</p>
+              <p>Ansible 2.8以降では、更にhttpapi(Ansibleプラグイン)に対応していますので、fortiosapi(pythonライブラリ)のインストールが不要です。</p>
+              <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になるため、ぜひAnsible 2.9をご利用ください。</p>
+              <p> <img src="/ansible_demo/img/01.png"> </p>
             </ol>
-            <h6>本チュートリアルの概要</h6>
+            <h4>□ Collectionを活用する</h4>
             <ol>
-              <li value="1">AA
-                <pre>config system virtual-wan-link</pre> </li>
-              <li value="2">BB
-                <pre>config system virtual-wan-link</pre> </ol>
-            <h6>Exercise 環境</h6>
-            <ol>
-              <li value="1">AAAAA
-                <pre>config system virtual-wan-link</pre> </li>
-              <li value="2">準備するもの
-                <p>Ubuntu 18.04</p>
-                <p>FortiGate KVM qcows</p>
-                <p>FortiGate VMライセンス</p>
-              </li>
-            </ol>
+              <p>Collectionは、モジュール、プラグイン、ロール、プレイブックなどのコンテンツを配布するための新たな仕組みです。</p>
+              <p>Ansibleの標準モジュールとは切り離して管理ができるため、Ansibleの新規バージョンのリリースを待たずに、モジュールの修正、更新、名前変更などを行うことができます。</p>
+              <p>CollectionはAnsible 2.9でフルサポートされるようになり、FortiGate用のCollectionもすでに公開しています。
+                <p>
+                  <p><a href="https://galaxy.ansible.com/fortinet/fortios">https://galaxy.ansible.com/fortinet/fortios</a></p>
+                  <p><a href="https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection">https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection</a></p>
+                  <p>Collectionのダウンロードは、ansible-galaxyコマンド、もしくは上記のgalaxyページからtar形式でダウンロードできます。</p>
+                  <p><pre>     $ ansible-galaxy collection install fortinet.fortios</pre></p> </ol>
           </div>
         </div>
       </div>
@@ -142,38 +131,29 @@
       <div id="content">
         <div role="main" id="mc-main-content">
           <h1>はじめに</h1>
-          <p>xxxxxxxxxxxxxxxxxxxxx</p>
-          <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-          <p> <img src=""> </p>
-          <h6>FortiOSのAnsbile</h6>
+          <p>このコンテンツは、AnsibleでFortiGateを設定するためのチュートリアルです。</p>
+          <p>Ansibleの特徴である「気軽にはじめられる」を体験していただくために、さまざまな演習を用意しています。</p>
+          <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p> <br>
+          <h4>□ Ansibleモジュール</h4>
           <ol>
-            <li value="1">AAA
-              <pre>config system virtual-wan-link</pre> </li>
-            <li value="2">BBB
-              <pre>config system virtual-wan-link</pre>
-              <p>After the interfaces are configured, the new spoke will function like the other spokes.</p>
-            </li>
-            <li value="3">CCC
-              <pre>config system virtual-wan-link</pre>
-              <p>After the interfaces are configured, the new spoke will function like the other spokes.</p>
-            </li>
+            <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
+            <p>標準モジュールでカバーしていない項目については、fortiosconfigモジュールを使って設定が可能です。</p>
+            <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)が必要です。</p>
+            <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9が推奨です。</p>
+            <p>Ansible 2.8以降では、更にhttpapi(Ansibleプラグイン)に対応していますので、fortiosapi(pythonライブラリ)のインストールが不要です。</p>
+            <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になるため、ぜひAnsible 2.9をご利用ください。</p>
+            <p> <img src="/ansible_demo/img/01.png"> </p>
           </ol>
-          <h6>本チュートリアルの概要</h6>
+          <h4>□ Collectionを活用する</h4>
           <ol>
-            <li value="1">AA
-              <pre>config system virtual-wan-link</pre> </li>
-            <li value="2">BB
-              <pre>config system virtual-wan-link</pre> </ol>
-          <h6>Exercise 環境</h6>
-          <ol>
-            <li value="1">AAAAA
-              <pre>config system virtual-wan-link</pre> </li>
-            <li value="2">準備するもの
-              <p>Ubuntu 18.04</p>
-              <p>FortiGate KVM qcows</p>
-              <p>FortiGate VMライセンス</p>
-            </li>
-          </ol>
+            <p>Collectionは、モジュール、プラグイン、ロール、プレイブックなどのコンテンツを配布するための新たな仕組みです。</p>
+            <p>Ansibleの標準モジュールとは切り離して管理ができるため、Ansibleの新規バージョンのリリースを待たずに、モジュールの修正、更新、名前変更などを行うことができます。</p>
+            <p>CollectionはAnsible 2.9でフルサポートされるようになり、FortiGate用のCollectionもすでに公開しています。
+              <p>
+                <p><a href="https://galaxy.ansible.com/fortinet/fortios">https://galaxy.ansible.com/fortinet/fortios</a></p>
+                <p><a href="https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection">https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection</a></p>
+                <p>Collectionのダウンロードは、ansible-galaxyコマンド、もしくは上記のgalaxyページからtar形式でダウンロードできます。</p>
+                <p><pre>     $ ansible-galaxy collection install fortinet.fortios</pre></p> </ol>
         </div>
       </div>
     </div>
