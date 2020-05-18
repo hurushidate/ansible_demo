@@ -188,71 +188,85 @@ ssh fgt2</pre>
     <div class="document-content src-mc d-md-none">
       <div id="content">
         <div role="main" id="mc-main-content">
-          <h1>ラボ環境のセットアップ</h1>
+        <h1>ラボ環境のセットアップ</h1>
           <p>演習に入る前に、ラボ環境を確認しましょう。</p>
           <p>この演習では、UbuntuにKVMを導入し、KVM上に2台のFortiGate-VM(fgt1, fgt2)をデプロイします。</p>
           <p>FortiGate-VMに対して、Ansible playbookを実行していきます。</p>
           <h4>環境・構成</h4>
           <ol>
-          <li value="1">ubuntuにSSHアクセス</li>
-          <pre>
+            <li value="1">準備するもの
+              <p>Ubuntu Server 18.04 LTS *2vCPU, 8GBメモリ以上</p>
+              <p>FortiGate-VM KVM qcow v6.2</li>
+            <li value="2">システム環境
+              <p>KVM</p>
+              <p>Python3系 (pip3)</p>
+              <p>Ansible 2.9</p>
+            </li>
+            <li value="3">ネットワークトポロジ
+              <p> <img src="/ansible_demo/img/02.png"> </p>
+            </li>
+          </ol>
+          <h4>セットアップ</h4>
+          <ol>
+            <li value="1">ubuntuにSSHアクセス</li>
+            <pre>
 git clone https://github.com/hurushidate.github.io/xxxxxx</pre></li>
-          <li value="2">各種パッケージのインストール
-          <pre>
+            <li value="2">各種パッケージのインストール
+            <pre>
 cd setup/
 installation.sh</pre>
-          <p>このシェルスクリプトで、kvm、curl、openssh-clientなどインストールされます。</p>
-          <p>ssh鍵生成時にダイアログが表示されます。すべてEnterで構いません。</p>
-          <p>最後に<code>sudo reboot</code>でリブートします。</p>
-          </li>
-          <li value="3">pip3、Ansibleのインストール
-          <pre>
+            <p>このシェルスクリプトで、kvm、curl、openssh-clientなどインストールされます。</p>
+            <p>ssh鍵生成時にダイアログが表示されます。すべてEnterで構いません。</p>
+            <p>最後に<code>sudo reboot</code>でリブートします。</p>
+            </li>
+            <li value="3">pip3、Ansibleのインストール
+            <pre>
 sudo apt install -y python3-pip
 pip3 install ansible --user</pre>
 <!--
 <button type="button" class="copyButton_2Cs1XD" id="copyButton_2Cs1XD" aria-live="polite" onclick="(function() {
-        var textarea = document.createElement('textarea');
-        var button = document.querySelector('#copyButton_2Cs1XD');
+          var textarea = document.createElement('textarea');
+          var button = document.querySelector('#copyButton_2Cs1XD');
 
-        textarea.innerHTML = 'sudo apt install -y python3-pip\npip3 install ansible --user';
-        document.body.appendChild(textarea);
-        textarea.select();
+          textarea.innerHTML = 'sudo apt install -y python3-pip\npip3 install ansible --user';
+          document.body.appendChild(textarea);
+          textarea.select();
 
-        button.innerHTML = 'Copied!';
-        setTimeout(function() { button.innerHTML = 'Click to copy'; }, 1500);
+          button.innerHTML = 'Copied!';
+          setTimeout(function() { button.innerHTML = 'Click to copy'; }, 1500);
 
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-    })();">Click to copy</button>
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+      })();">Click to copy</button>
 -->
-    </li>
-          <li value="4">PATHを通す
-          <pre>
+      </li>
+            <li value="4">PATHを通す
+            <pre>
 echo "export PATH=$PATH:/home/${USER}/.local/bin" >>.bashrc
 source ~/.bashrc</pre>
-          </li>
-          <li value="5">KVM fortios_623.qcow2をUbuntuの<code>~/setup</code>にアップロード</li>
-          <li value="6">FortiGate VMの起動
-          <pre>
+            </li>
+            <li value="5">KVM fortios_623.qcow2をUbuntuの<code>~/setup</code>にアップロード</li>
+            <li value="6">FortiGate VMの起動
+            <pre>
 cd ~/setup
 sudo ./start_fgt.sh fortios_623.qcow2</pre>
-          </li>
-          <li value="7">FortiGate VMの起動確認
-          <pre>
+            </li>
+            <li value="7">FortiGate VMの起動確認
+            <pre>
 virsh list</pre>
-          </li>
-          <li value="8">FortiGate VMにコンソールログイン
-          <pre>
+            </li>
+            <li value="8">FortiGate VMにコンソールログイン
+            <pre>
 virsh console fgt1</pre>
-          <p>username: admin, password: m</p>
-          <p> Ctrl+] でコンソールから抜けます</p>
-          <pre>
+            <p>username: admin, password: m</p>
+            <p> Ctrl+] でコンソールから抜けます</p>
+            <pre>
 virsh console fgt2</pre>
-          <li value="9">FortiGate VMにSSHログイン
-          <pre>
+            <li value="9">FortiGate VMにSSHログイン
+            <pre>
 ssh fgt1</pre>
-          <p>username: admin, password: m</p>
-          <pre>
+            <p>username: admin, password: m</p>
+            <pre>
 ssh fgt2</pre>
             </li>
           </ol>
