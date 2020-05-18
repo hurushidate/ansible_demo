@@ -98,9 +98,18 @@
         <div id="content">
           <div role="main" id="mc-main-content">
             <h1>Collectionのダウンロード</h1>
-            <p>このコンテンツは、AnsibleでFortiGateを設定するためのチュートリアルです。</p>
-            <p>Ansibleの特徴である「気軽にはじめられる」を体験していただくために、さまざまな演習を用意しています。</p>
-            <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p> <br>
+            <p>Collectionは、モジュール、プラグイン、ロール、プレイブックなどのコンテンツを配布するために、Ansible2.9からフルサポートされた新しい仕組みです。</p>
+            <p>Ansibleの標準モジュールとは切り離して管理ができるため、Ansibleの新規バージョンのリリースを待たずに、モジュールの修正、更新、名前変更などを行うことができます。</p>
+            <p>Ansibleの標準モジュールのあるディレクトリは、<code>ansible --version</code>で確認できます。</p>
+            <pre style="padding-left: 3em; color:#FFFFFF; background: #000000;">
+$ ansible --version
+ansible 2.9.9
+  config file = /home/ansibleuser/.ansible.cfg
+  configured module search path = ['/home/ansibleuser/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/ansibleuser/.local/lib/python3.6/site-packages/ansible
+  executable location = /home/ansibleuser/.local/bin/ansible
+  python version = 3.6.9 (default, Apr 18 2020, 01:56:04) [GCC 8.4.0]
+</pre>
             <h4>Ansibleモジュール</h4>
             <ol>
               <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
@@ -130,7 +139,7 @@
     <div class="document-content src-mc d-md-none">
       <div id="content">
         <div role="main" id="mc-main-content">
-          <h1>はじめに</h1>
+          <h1>Collectionのダウンロード</h1>
           <p>このコンテンツは、AnsibleでFortiGateを設定するためのチュートリアルです。</p>
           <p>Ansibleの特徴である「気軽にはじめられる」を体験していただくために、さまざまな演習を用意しています。</p>
           <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p> <br>
