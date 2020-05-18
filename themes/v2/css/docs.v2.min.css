@@ -412,7 +412,8 @@ footer {
     display: inline-block;
     margin-bottom: 15px;
     padding-left: 3em;
-    color: #FFFFFF;
+    color: #253746;
+    border-radius: 10px 10px 10px 10px;
     background: #000000; }
   .docs-document .document-content.src-md table {
     width: 100%;
@@ -1653,7 +1654,8 @@ section.bsmi {
   .document-content pre {
     display: block;
     padding-left: 3em;
-    color: #FFFFFF;
+    color: #253746;
+    border-radius: 10px 10px 10px 10px;
     background: #000000;
     white-space: pre-wrap;
     word-wrap: break-word;
