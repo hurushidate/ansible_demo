@@ -405,9 +405,15 @@ footer {
   font-family: "M PLUS 1p", "HelveticaNeueLT-Light",Helvetica,Arial,sans-serif; }
   .docs-document .document-content #content img, .docs-document .document-content .content img {
     max-width: 100%; }
-  .docs-document .document-content.src-md pre code {
+  .docs-document .document-content.src-md code {
     display: inline-block;
     margin-bottom: 15px; }
+  .docs-document .document-content.src-md pre {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding-left: 3em;
+    color: #FFFFFF;
+    background: #000000; }
   .docs-document .document-content.src-md table {
     width: 100%;
     table-layout: fixed;
@@ -1646,6 +1652,9 @@ section.bsmi {
     margin-left: 2.0in; }
   .document-content pre {
     display: block;
+    padding-left: 3em;
+    color: #FFFFFF;
+    background: #000000;
     white-space: pre-wrap;
     word-wrap: break-word;
     font-family: "Courier New", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
