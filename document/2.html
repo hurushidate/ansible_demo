@@ -118,11 +118,15 @@ ansible 2.9.9
             <ol>
               <p>Collectionのダウンロードは、<code>ansible-galaxy</code>コマンドを使って行います。</p>
               <pre>
-ansible-galaxy collection install fortinet.fortios</pre>
+
+ansible-galaxy collection install fortinet.fortios
+
+</pre>
               <p>Ansibleは、Collectionを探索するときに、Ansibleコンフィグ内の<code>COLLECTIONS_PATHS</code>を参照します。</p>
               <p><code>COLLECTIONS_PATHS</code>のデフォルトは、<code>~/.ansible/collections:/usr/share/ansible/collections</code>です。</p>
               <p>FortiOSのCollectionをダウンロードした後のディレクトリ構造は以下のようになります。</p>
               <pre>
+
 $ tree /home/ansibleuser/.ansible/collections/ -L 4
 /home/ansibleuser/.ansible/collections/
 └── ansible_collections
@@ -134,6 +138,7 @@ $ tree /home/ansibleuser/.ansible/collections/ -L 4
             ├── examples
             ├── plugins
             └── roles
+
 </pre>
             </ol>
             </div>
@@ -166,11 +171,15 @@ python version = 3.6.9 (default, Apr 18 2020, 01:56:04) [GCC 8.4.0]
         <ol>
           <p>Collectionのダウンロードは、<code>ansible-galaxy</code>コマンドを使って行います。</p>
           <pre>
-ansible-galaxy collection install fortinet.fortios</pre>
+
+ansible-galaxy collection install fortinet.fortios
+
+</pre>
           <p>Ansibleは、Collectionを探索するときに、Ansibleコンフィグ内の<code>COLLECTIONS_PATHS</code>を参照します。</p>
           <p><code>COLLECTIONS_PATHS</code>のデフォルトは、<code>~/.ansible/collections:/usr/share/ansible/collections</code>です。</p>
           <p>FortiOSのCollectionをダウンロードした後のディレクトリ構造は以下のようになります。</p>
           <pre>
+
 $ tree /home/ansibleuser/.ansible/collections/ -L 4
 /home/ansibleuser/.ansible/collections/
 └── ansible_collections
@@ -182,6 +191,7 @@ $ tree /home/ansibleuser/.ansible/collections/ -L 4
         ├── examples
         ├── plugins
         └── roles
+
 </pre>
         </ol>
         </div>
