@@ -412,9 +412,10 @@ footer {
     display: inline-block;
     margin-bottom: 15px;
     padding-left: 2em;
-    color: #253746;
-    border-radius: 5px 5px 5px 5px;
-    background: #000000; }
+    color: #000000;
+    border-radius: 2px 2px 2px 2px;
+    background: #F6F8FB;
+     }
   .docs-document .document-content.src-md table {
     width: 100%;
     table-layout: fixed;
@@ -1654,9 +1655,9 @@ section.bsmi {
   .document-content pre {
     display: block;
     padding-left: 2em;
-    color: #FFFFFF;
-    border-radius: 5px 5px 5px 5px;
-    background: #253746;
+    color: #000000;
+    border-radius: 2px 2px 2px 2px;
+    background: #F6F8FB;
     white-space: pre-wrap;
     word-wrap: break-word;
     font-family: "Courier New", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
