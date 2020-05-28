@@ -98,29 +98,148 @@
         <div id="content">
           <div role="main" id="mc-main-content">
             <h1>Playbookの作成</h1>
-            <p>このコンテンツは、AnsibleでFortiGateを設定するためのチュートリアルです。</p>
-            <p>Ansibleの特徴である「気軽にはじめられる」を体験していただくために、さまざまな演習を用意しています。</p>
-            <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p> <br>
-            <h4>□ Ansibleモジュール</h4>
+            <p>この演習では、インターフェースやファームウェアなどシステムの基本情報であるfactsを取得するためのPlaybookを作成します。</p>
+			<p>FortiGateのfactsはfortios_factsモジュールで取得します。<p><br>
+            <h4>FortiGateのfactsを取得する</h4>
             <ol>
-              <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
-              <p>標準モジュールでカバーしていない項目については、fortiosconfigモジュールを使って設定が可能です。</p>
-              <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)が必要です。</p>
-              <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9が推奨です。</p>
-              <p>Ansible 2.8以降では、更にhttpapi(Ansibleプラグイン)に対応していますので、fortiosapi(pythonライブラリ)のインストールが不要です。</p>
-              <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になるため、ぜひAnsible 2.9をご利用ください。</p>
-              <p> <img src="/ansible_demo/img/01.png"> </p>
+              <li value="1">ansible-docの確認
+              <pre>
+$ ansible-doc fortinet.fortios.fortios_facts
+= gather_subset
+        When supplied, this argument will restrict the facts collected to a given subset.  Possible values for this argument include
+        system_current-admins_select, system_firmware_select, system_fortimanager_status, system_ha-checksums_select,
+        system_interface_select, system_status_select and system_time_select
+...省略...
+			</pre>
+			<p><code>gather_subset</code>の引数に、取得したい情報を指定します。</p>
+			</li>
+              <li value="2">Playbookの作成
+              <pre>
+$ sudo vi facts.yml
+---
+- hosts: fgt1
+  gather_facts: no
+  collections:
+  - fortinet.fortios
+
+  tasks:
+    - name: gather fortios facts
+      fortios_facts:
+        vdom:  "{{ vdom }}"
+        gather_subset:
+        - fact: 'system_interface_select'
+          filters:
+            - interface_name: 'port1'
+			  </pre>
+              <p>port1の情報を取得するために、<code>gather_subset</code>で<code>system_interface_select</code>を指定します。</p>
+              </li>
+              <li value="3">Playbookの実行
+              <pre>
+$ cat inventory/hosts$ ansible-playbook facts.yml
+
+PLAY [fgt1] ***************************************************************************************************************************************************************
+
+TASK [gather fortios facts] ***********************************************************************************************************************************************
+ok: [fgt1]
+
+PLAY RECAP ****************************************************************************************************************************************************************
+fgt1                       : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</pre>
+              <p>okと表示されるものの、情報が見れません。</p>
+              </li>
+              <li value="4">-v(verbose)オプションをつけて再度Playbookを実行
+              <pre>
+$ ansible-playbook facts.yml -v
+
+PLAY [fgt1] ***************************************************************************************************************************************************************
+
+TASK [gather fortios facts] ***********************************************************************************************************************************************
+ok: [fgt1] => {"ansible_facts": {"ansible_net_gather_network_resources": [], "ansible_net_gather_subset": [], "ansible_network_resources": {"system_interface_select": {"action": "select", "build": 1066, "http_method": "GET", "name": "interface", "path": "system", "results": {"port1": {"alias": "", "duplex": 1, "id": "port1", "ip": "192.168.122.41", "link": true, "mac": "00:00:00:00:00:00", "mask": 24, "name": "port1", "rx_bytes": 659801, "rx_errors": 0, "rx_packets": 5535, "speed": 10000, "tx_bytes": 667656, "tx_errors": 0, "tx_packets": 2334}}, "revision": "1590634816.271715", "serial": "FGVMEVHFW6BBHXAB", "status": "success", "vdom": "root", "version": "v6.2.3"}}}, "changed": false}
+
+PLAY RECAP ****************************************************************************************************************************************************************
+fgt1                       : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+</pre>
+              </li>
+              <li value="5">debugモジュールを利用し、情報を出力するようPlaybookを修正
+              <pre>
+$ sudo vi facts.yml
+---
+- hosts: fgt1
+  gather_facts: no
+  collections:
+  - fortinet.fortios
+
+  tasks:
+    - name: gather fortios facts
+      fortios_facts:
+        vdom:  "{{ vdom }}"
+        gather_subset:
+        - fact: 'system_interface_select'
+          filters:
+            - interface_name: 'port1'
+      register: fact_result
+
+    - name: debug
+      debug:
+        var: fact_result</pre>
+              </li>
+              <li value="6">Playbookの実行
+              <pre>
+$ ansible-playbook facts.yml
+
+PLAY [fgt1] ***************************************************************************************************************************************************************
+
+TASK [gather fortios facts] ***********************************************************************************************************************************************
+ok: [fgt1]
+
+TASK [debug] **************************************************************************************************************************************************************
+ok: [fgt1] => {
+    "fact_result": {
+        "ansible_facts": {
+            "ansible_net_gather_network_resources": [],
+            "ansible_net_gather_subset": [],
+            "ansible_network_resources": {
+                "system_interface_select": {
+                    "action": "select",
+                    "build": 1066,
+                    "http_method": "GET",
+                    "name": "interface",
+                    "path": "system",
+                    "results": {
+                        "port1": {
+                            "alias": "",
+                            "duplex": 1,
+                            "id": "port1",
+                            "ip": "192.168.122.41",
+                            "link": true,
+                            "mac": "00:00:00:00:00:00",
+                            "mask": 24,
+                            "name": "port1",
+                            "rx_bytes": 664036,
+                            "rx_errors": 0,
+                            "rx_packets": 5571,
+                            "speed": 10000,
+                            "tx_bytes": 672836,
+                            "tx_errors": 0,
+                            "tx_packets": 2354
+                        }
+                    },
+                    "revision": "1590634849.583744",
+                    "serial": "FGVMEVHFW6BBHXAB",
+                    "status": "success",
+                    "vdom": "root",
+                    "version": "v6.2.3"
+                }
+            }
+        },
+        "changed": false,
+        "failed": false
+    }
+}
+
+PLAY RECAP ****************************************************************************************************************************************************************
+fgt1                       : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</pre>
+              </li>
             </ol>
-            <h4>□ Collectionを活用する</h4>
-            <ol>
-              <p>Collectionは、モジュール、プラグイン、ロール、プレイブックなどのコンテンツを配布するための新たな仕組みです。</p>
-              <p>Ansibleの標準モジュールとは切り離して管理ができるため、Ansibleの新規バージョンのリリースを待たずに、モジュールの修正、更新、名前変更などを行うことができます。</p>
-              <p>CollectionはAnsible 2.9でフルサポートされるようになり、FortiGate用のCollectionもすでに公開しています。
-                <p>
-                  <p><a href="https://galaxy.ansible.com/fortinet/fortios">https://galaxy.ansible.com/fortinet/fortios</a></p>
-                  <p><a href="https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection">https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection</a></p>
-                  <p>Collectionのダウンロードは、ansible-galaxyコマンド、もしくは上記のgalaxyページからtar形式でダウンロードできます。</p>
-                  <p><pre>     $ ansible-galaxy collection install fortinet.fortios</pre></p> </ol>
           </div>
         </div>
       </div>
@@ -130,30 +249,149 @@
     <div class="document-content src-mc d-md-none">
       <div id="content">
         <div role="main" id="mc-main-content">
-          <h1>はじめに</h1>
-          <p>このコンテンツは、AnsibleでFortiGateを設定するためのチュートリアルです。</p>
-          <p>Ansibleの特徴である「気軽にはじめられる」を体験していただくために、さまざまな演習を用意しています。</p>
-          <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p> <br>
-          <h4>□ Ansibleモジュール</h4>
-          <ol>
-            <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
-            <p>標準モジュールでカバーしていない項目については、fortiosconfigモジュールを使って設定が可能です。</p>
-            <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)が必要です。</p>
-            <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9が推奨です。</p>
-            <p>Ansible 2.8以降では、更にhttpapi(Ansibleプラグイン)に対応していますので、fortiosapi(pythonライブラリ)のインストールが不要です。</p>
-            <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になるため、ぜひAnsible 2.9をご利用ください。</p>
-            <p> <img src="/ansible_demo/img/01.png"> </p>
-          </ol>
-          <h4>□ Collectionを活用する</h4>
-          <ol>
-            <p>Collectionは、モジュール、プラグイン、ロール、プレイブックなどのコンテンツを配布するための新たな仕組みです。</p>
-            <p>Ansibleの標準モジュールとは切り離して管理ができるため、Ansibleの新規バージョンのリリースを待たずに、モジュールの修正、更新、名前変更などを行うことができます。</p>
-            <p>CollectionはAnsible 2.9でフルサポートされるようになり、FortiGate用のCollectionもすでに公開しています。
-              <p>
-                <p><a href="https://galaxy.ansible.com/fortinet/fortios">https://galaxy.ansible.com/fortinet/fortios</a></p>
-                <p><a href="https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection">https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection</a></p>
-                <p>Collectionのダウンロードは、ansible-galaxyコマンド、もしくは上記のgalaxyページからtar形式でダウンロードできます。</p>
-                <p><pre>     $ ansible-galaxy collection install fortinet.fortios</pre></p> </ol>
+                      <h1>Playbookの作成</h1>
+            <p>この演習では、インターフェースやファームウェアなどシステムの基本情報であるfactsを取得するためのPlaybookを作成します。</p>
+			<p>FortiGateのfactsはfortios_factsモジュールで取得します。<p><br>
+            <h4>FortiGateのfactsを取得する</h4>
+            <ol>
+              <li value="1">ansible-docの確認
+              <pre>
+$ ansible-doc fortinet.fortios.fortios_facts
+= gather_subset
+        When supplied, this argument will restrict the facts collected to a given subset.  Possible values for this argument include
+        system_current-admins_select, system_firmware_select, system_fortimanager_status, system_ha-checksums_select,
+        system_interface_select, system_status_select and system_time_select
+...省略...
+			</pre>
+			<p><code>gather_subset</code>の引数に、取得したい情報を指定します。</p>
+			</li>
+              <li value="2">Playbookの作成
+              <pre>
+$ sudo vi facts.yml
+---
+- hosts: fgt1
+  gather_facts: no
+  collections:
+  - fortinet.fortios
+
+  tasks:
+    - name: gather fortios facts
+      fortios_facts:
+        vdom:  "{{ vdom }}"
+        gather_subset:
+        - fact: 'system_interface_select'
+          filters:
+            - interface_name: 'port1'
+			  </pre>
+              <p>port1の情報を取得するために、<code>gather_subset</code>で<code>system_interface_select</code>を指定します。</p>
+              </li>
+              <li value="3">Playbookの実行
+              <pre>
+$ cat inventory/hosts$ ansible-playbook facts.yml
+
+PLAY [fgt1] ***************************************************************************************************************************************************************
+
+TASK [gather fortios facts] ***********************************************************************************************************************************************
+ok: [fgt1]
+
+PLAY RECAP ****************************************************************************************************************************************************************
+fgt1                       : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</pre>
+              <p>okと表示されるものの、情報が見れません。</p>
+              </li>
+              <li value="4">-v(verbose)オプションをつけて再度Playbookを実行
+              <pre>
+$ ansible-playbook facts.yml -v
+
+PLAY [fgt1] ***************************************************************************************************************************************************************
+
+TASK [gather fortios facts] ***********************************************************************************************************************************************
+ok: [fgt1] => {"ansible_facts": {"ansible_net_gather_network_resources": [], "ansible_net_gather_subset": [], "ansible_network_resources": {"system_interface_select": {"action": "select", "build": 1066, "http_method": "GET", "name": "interface", "path": "system", "results": {"port1": {"alias": "", "duplex": 1, "id": "port1", "ip": "192.168.122.41", "link": true, "mac": "00:00:00:00:00:00", "mask": 24, "name": "port1", "rx_bytes": 659801, "rx_errors": 0, "rx_packets": 5535, "speed": 10000, "tx_bytes": 667656, "tx_errors": 0, "tx_packets": 2334}}, "revision": "1590634816.271715", "serial": "FGVMEVHFW6BBHXAB", "status": "success", "vdom": "root", "version": "v6.2.3"}}}, "changed": false}
+
+PLAY RECAP ****************************************************************************************************************************************************************
+fgt1                       : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+</pre>
+              </li>
+              <li value="5">debugモジュールを利用し、情報を出力するようPlaybookを修正
+              <pre>
+$ sudo vi facts.yml
+---
+- hosts: fgt1
+  gather_facts: no
+  collections:
+  - fortinet.fortios
+
+  tasks:
+    - name: gather fortios facts
+      fortios_facts:
+        vdom:  "{{ vdom }}"
+        gather_subset:
+        - fact: 'system_interface_select'
+          filters:
+            - interface_name: 'port1'
+      register: fact_result
+
+    - name: debug
+      debug:
+        var: fact_result</pre>
+              </li>
+              <li value="6">Playbookの実行
+              <pre>
+$ ansible-playbook facts.yml
+
+PLAY [fgt1] ***************************************************************************************************************************************************************
+
+TASK [gather fortios facts] ***********************************************************************************************************************************************
+ok: [fgt1]
+
+TASK [debug] **************************************************************************************************************************************************************
+ok: [fgt1] => {
+    "fact_result": {
+        "ansible_facts": {
+            "ansible_net_gather_network_resources": [],
+            "ansible_net_gather_subset": [],
+            "ansible_network_resources": {
+                "system_interface_select": {
+                    "action": "select",
+                    "build": 1066,
+                    "http_method": "GET",
+                    "name": "interface",
+                    "path": "system",
+                    "results": {
+                        "port1": {
+                            "alias": "",
+                            "duplex": 1,
+                            "id": "port1",
+                            "ip": "192.168.122.41",
+                            "link": true,
+                            "mac": "00:00:00:00:00:00",
+                            "mask": 24,
+                            "name": "port1",
+                            "rx_bytes": 664036,
+                            "rx_errors": 0,
+                            "rx_packets": 5571,
+                            "speed": 10000,
+                            "tx_bytes": 672836,
+                            "tx_errors": 0,
+                            "tx_packets": 2354
+                        }
+                    },
+                    "revision": "1590634849.583744",
+                    "serial": "FGVMEVHFW6BBHXAB",
+                    "status": "success",
+                    "vdom": "root",
+                    "version": "v6.2.3"
+                }
+            }
+        },
+        "changed": false,
+        "failed": false
+    }
+}
+
+PLAY RECAP ****************************************************************************************************************************************************************
+fgt1                       : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</pre>
+              </li>
+            </ol>
         </div>
       </div>
     </div>
