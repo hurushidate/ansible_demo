@@ -119,11 +119,11 @@
             <ol>
               <li value="1">ubuntuにSSHアクセス
               <pre>
-git clone https://github.com/hurushidate.github.io/xxxxxx</pre></li>
+git clone https://github.com/hurushidate/ansible_workshop_docs</pre></li>
               <li value="2">各種パッケージのインストール
               <pre>
-cd setup/
-installation.sh</pre>
+cd ~/ansible_workshop_docs/setup
+./installation.sh</pre>
               <p>このシェルスクリプトで、kvm、curl、openssh-clientなどインストールされます。</p>
               <p>ssh鍵生成時にダイアログが表示されます。すべてEnterで構いません。</p>
               <p>最後に<code>sudo reboot</code>でリブートします。</p>
@@ -154,11 +154,11 @@ pip3 install ansible --user</pre>
 echo "export PATH=$PATH:/home/${USER}/.local/bin" >>.bashrc
 source ~/.bashrc</pre>
               </li>
-              <li value="5">KVM fortios_623.qcow2をUbuntuの<code>~/setup</code>にアップロード</li>
+              <li value="5">KVM fortios_623.qcow2をUbuntuにアップロード</li>
               <li value="6">FortiGate VMの起動
               <pre>
-cd ~/setup
-sudo ./start_fgt.sh fortios_623.qcow2</pre>
+cd ~/ansible_workshop_docs/setup
+sudo ./start_fgt.sh \<qcow2のパスを指定\></pre>
               </li>
               <li value="7">FortiGate VMの起動確認
               <pre>
@@ -210,10 +210,10 @@ ssh admin@fgt2</pre>
           <ol>
             <li value="1">ubuntuにSSHアクセス
             <pre>
-git clone https://github.com/hurushidate.github.io/xxxxxx</pre></li>
+git clone https://github.com/hurushidate/ansible_workshop_docs</pre></li>
             <li value="2">各種パッケージのインストール
             <pre>
-cd setup/
+cd ~/ansible_workshop_docs/setup
 installation.sh</pre>
             <p>このシェルスクリプトで、kvm、curl、openssh-clientなどインストールされます。</p>
             <p>ssh鍵生成時にダイアログが表示されます。すべてEnterで構いません。</p>
@@ -245,11 +245,11 @@ pip3 install ansible --user</pre>
 echo "export PATH=$PATH:/home/${USER}/.local/bin" >>.bashrc
 source ~/.bashrc</pre>
             </li>
-            <li value="5">KVM fortios_623.qcow2をUbuntuの<code>~/setup</code>にアップロード</li>
+            <li value="5">KVM fortios_623.qcow2をUbuntuにアップロード</li>
             <li value="6">FortiGate VMの起動
             <pre>
-cd ~/setup
-sudo ./start_fgt.sh fortios_623.qcow2</pre>
+cd ~/ansible_workshop_docs/setup
+sudo ./start_fgt.sh \<qcow2のパスを指定\></pre>
             </li>
             <li value="7">FortiGate VMの起動確認
             <pre>
