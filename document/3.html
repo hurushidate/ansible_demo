@@ -105,10 +105,10 @@
             <ol>
               <li value="1">ワークショップのディレクトリに移動
               <pre>
-cd ~/ansible_workshop_docs/example/</pre></li>
+$ cd ~/ansible_workshop_docs/example/</pre></li>
               <li value="2">ディレクトリ構造を確認
               <pre>
-tree
+$ tree
 .
 ├── gather_facts.yml
 ├── inventory
@@ -119,7 +119,7 @@ tree
               </li>
               <li value="3">inventoryファイルの確認
               <pre>
-cat inventory/hosts
+$ cat inventory/hosts
 [fortinet:children]
 fortigate
 fortimanager
@@ -151,12 +151,12 @@ ansible_python_interpreter=/usr/bin/python3
               </li>
               <li value="4">ansible.cfgにinventoryファイルのパスを設定
               <pre>
-echo -e [defaults]\\ninventory = ~/ansible_workshop_docs/example/inventory/hosts >> ~/.ansible.cfg</pre>
+$ echo -e [defaults]\\ninventory = ~/ansible_workshop_docs/example/inventory/hosts >> ~/.ansible.cfg</pre>
               <p>pipでAnsibleをインストールした場合、ansible.cfgは自動生成されません。</p>
               </li>
               <li value="5">Playbook(set_system_global.yml)の中身を確認
               <pre>
-cat set_system_global.yml
+$ cat set_system_global.yml
 ---
 - hosts: fortigate
   collections:
@@ -174,7 +174,7 @@ cat set_system_global.yml
               </li>
               <li value="6">Playbook実行前の確認
               <pre>
-sshpass -p m ssh admin&#64;fgt1 show sys global
+$ sshpass -p m ssh admin&#64;fgt1 show sys global
 fgt1 # config system global
     set admintimeout 480
     <code style="color: #FEF851;">set alias "FortiGate-VM64-KVM"</code>
@@ -182,11 +182,11 @@ fgt1 # config system global
     set timezone 04
 end</pre>
               <pre>
-sshpass -p m ssh admin&#64;fgt2 show sys global</pre>
+$ sshpass -p m ssh admin&#64;fgt2 show sys global</pre>
               </li>
               <li value="7">Playbookの実行
               <pre>
-ansible-playbook set_system_global.yml
+$ ansible-playbook set_system_global.yml
 
 PLAY [fortigate] **********************************************************************************************************************************************************
 
@@ -200,7 +200,7 @@ fgt2                       : ok=1    changed=1    unreachable=0    failed=0    s
               </li>
               <li value="8">実行後の確認
               <pre>
-sshpass -p m ssh admin$#64;fgt1 show sys global
+$ sshpass -p m ssh admin$#64;fgt1 show sys global
 fgt1 # config system global
     set admintimeout 480
     <code style="color: #FEF851;">set alias "fgt1"</code>
@@ -226,10 +226,10 @@ end</pre>
         <ol>
           <li value="1">ワークショップのディレクトリに移動
           <pre>
-cd ~/ansible_workshop_docs/example/</pre></li>
+$ cd ~/ansible_workshop_docs/example/</pre></li>
           <li value="2">ディレクトリ構造を確認
           <pre>
-tree
+$ tree
 .
 ├── gather_facts.yml
 ├── inventory
@@ -240,7 +240,7 @@ tree
           </li>
           <li value="3">inventoryファイルの確認
           <pre>
-cat inventory/hosts
+$ cat inventory/hosts
 [fortinet:children]
 fortigate
 fortimanager
@@ -272,12 +272,12 @@ ansible_python_interpreter=/usr/bin/python3
           </li>
           <li value="4">ansible.cfgにinventoryファイルのパスを設定
           <pre>
-echo -e [defaults]\\ninventory = ~/ansible_workshop_docs/example/inventory/hosts >> ~/.ansible.cfg</pre>
+$ echo -e [defaults]\\ninventory = ~/ansible_workshop_docs/example/inventory/hosts >> ~/.ansible.cfg</pre>
           <p>pipでAnsibleをインストールした場合、ansible.cfgは自動生成されません。</p>
           </li>
           <li value="5">Playbook(set_system_global.yml)の中身を確認
           <pre>
-cat set_system_global.yml
+$ cat set_system_global.yml
 ---
 - hosts: fortigate
 collections:
@@ -295,7 +295,7 @@ fortios_system_global:
           </li>
           <li value="6">Playbook実行前の確認
           <pre>
-sshpass -p m ssh admin&#64;fgt1 show sys global
+$ sshpass -p m ssh admin&#64;fgt1 show sys global
 fgt1 # config system global
 set admintimeout 480
 <code style="color: #FEF851;">set alias "FortiGate-VM64-KVM"</code>
@@ -303,11 +303,11 @@ set hostname "fgt1"
 set timezone 04
 end</pre>
           <pre>
-sshpass -p m ssh admin&#64;fgt2 show sys global</pre>
+$ sshpass -p m ssh admin&#64;fgt2 show sys global</pre>
           </li>
           <li value="7">Playbookの実行
           <pre>
-ansible-playbook set_system_global.yml
+$ ansible-playbook set_system_global.yml
 
 PLAY [fortigate] **********************************************************************************************************************************************************
 
@@ -321,7 +321,7 @@ fgt2                       : ok=1    changed=1    unreachable=0    failed=0    s
           </li>
           <li value="8">実行後の確認
           <pre>
-sshpass -p m ssh admin$#64;fgt1 show sys global
+$ sshpass -p m ssh admin$#64;fgt1 show sys global
 fgt1 # config system global
 set admintimeout 480
 <code style="color: #FEF851;">set alias "fgt1"</code>
