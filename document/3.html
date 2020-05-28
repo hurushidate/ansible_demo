@@ -97,30 +97,118 @@
       <div class="document-content src-mc mt-4">
         <div id="content">
           <div role="main" id="mc-main-content">
-            <h1>はじめに</h1>
-            <p>このコンテンツは、AnsibleでFortiGateを設定するためのチュートリアルです。</p>
-            <p>Ansibleの特徴である「気軽にはじめられる」を体験していただくために、さまざまな演習を用意しています。</p>
-            <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p> <br>
-            <h4>□ Ansibleモジュール</h4>
+            <h1>サンプルPlaybookの実行</h1>
+            <p>Ansibleを利用して、FortiGateにエイリアスを設定します。</p>
+            <p>ここでは、あらかじめ準備されたサンプルPlaybookを使って実行してみます。</p>
+            <p>サンプルPlaybookを使って、Playbookの実行方法や、inventoryファイルの使い方を学習します。</p> <br>
+            <h4>Playbookの実行</h4>
             <ol>
-              <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
-              <p>標準モジュールでカバーしていない項目については、fortiosconfigモジュールを使って設定が可能です。</p>
-              <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)が必要です。</p>
-              <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9が推奨です。</p>
-              <p>Ansible 2.8以降では、更にhttpapi(Ansibleプラグイン)に対応していますので、fortiosapi(pythonライブラリ)のインストールが不要です。</p>
-              <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になるため、ぜひAnsible 2.9をご利用ください。</p>
-              <p> <img src="/ansible_demo/img/01.png"> </p>
+              <li value="1">ワークショップのディレクトリに移動
+              <pre>
+cd ~/ansible_workshop_docs/example/</pre></li>
+              <li value="2">ディレクトリ構造を確認
+              <pre>
+tree
+.
+├── gather_facts.yml
+├── inventory
+│   └── hosts
+└── set_system_global.yml</pre>
+              <p>inventoryディレクトリにhostsファイルがあります。</p>
+              <p>このファイルに、Playbookの実行対象となるホストの情報を定義します。</p>
+              </li>
+              <li value="3">inventoryファイルの確認
+              <pre>
+cat inventory/hosts
+[fortinet:children]
+fortigate
+fortimanager
+fortiadc
+
+[fortigate]
+fgt1 ansible_host=fgt1
+fgt2 ansible_host=fgt2
+[fortigate:vars]
+ansible_network_os=fortinet.fortios.fortios
+ansible_user=admin
+ansible_password=m
+vdom=root
+ansible_httpapi_use_ssl=no
+#Evaluation license only accepts HTTP(80) access
+#ansible_httpapi_use_ssl=yes
+ansible_httpapi_validate_certs=no
+ansible_python_interpreter=/usr/bin/python3
+
+[fortimanager]
+
+[fortiadc]</pre>
+              <p><code>[ ]</code>はグループを表します。</p>
+              <p><code>[fortinet]</code>グループ配下に、<code>[fortigate]</code>、<code>[fortimanager]</code>、<code>[fortiadc]</code>の3つの子グループを定義しています。</p>
+              <p><code>[fortigate]</code>グループに<code>fgt1</code>と<code>fgt2</code>の2つのホストを定義しています。</p>
+              <p>また、それらに共通する変数を<code>[fortigate:vars]</code>に定義できます。</p>
+              <p>ここでは、ログインユーザ名(<code>ansible_user</code>)、パスワード(<code>ansible_password</code>)などを定義しています。</p>
+              <p><code>[fortimanager]</code>グループと、<code>[fortiadc]</code>グループはこのワークショップでは使いませんので、空です。</p>
+              </li>
+              <li value="4">ansible.cfgにinventoryファイルのパスを設定
+              <pre>
+echo -e [defaults]\\ninventory = ~/ansible_workshop_docs/example/inventory/hosts >> ~/.ansible.cfg</pre>
+              <p>pipでAnsibleをインストールした場合、ansible.cfgは自動生成されません。</p>
+              </li>
+              <li value="5">Playbook(set_system_global.yml)の中身を確認
+              <pre>
+cat set_system_global.yml
+---
+- hosts: fortigate
+  collections:
+  - fortinet.fortios
+
+  tasks:
+  - name: configure global attributes.
+    fortios_system_global:
+      vdom:  "{{ vdom }}"
+      system_global:
+        alias: "{{ ansible_host }}"</pre>
+              <p><code>hosts</code>でinventoryファイルに定義した<code>fortigate</code>グループを設定しています。</p>
+              <p><code>taks:</code>内の<code>fortios_system_global</code>はモジュール名です。</p>
+              <p>Playbookの書き方は、<code>ansible-doc &lt;モジュール名&gt;</code>コマンドで確認できます。</p>
+              </li>
+              <li value="6">Playbook実行前の確認
+              <pre>
+sshpass -p m ssh admin&#64;fgt1 show sys global
+fgt1 # config system global
+    set admintimeout 480
+    <code style="color: #FEF851;">set alias "FortiGate-VM64-KVM"</code>
+    set hostname "fgt1"
+    set timezone 04
+end</pre>
+              <pre>
+sshpass -p m ssh admin&#64;fgt2 show sys global</pre>
+              </li>
+              <li value="7">Playbookの実行
+              <pre>
+ansible-playbook set_system_global.yml
+
+PLAY [fortigate] **********************************************************************************************************************************************************
+
+TASK [Configure global attributes.] ***************************************************************************************************************************************
+changed: [fgt2]
+changed: [fgt1]
+
+PLAY RECAP ****************************************************************************************************************************************************************
+fgt1                       : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+fgt2                       : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</pre>
+              </li>
+              <li value="8">実行後の確認
+              <pre>
+sshpass -p m ssh admin$#64;fgt1 show sys global
+fgt1 # config system global
+    set admintimeout 480
+    <code style="color: #FEF851;">set alias "fgt1"</code>
+    set hostname "fgt1"
+    set timezone 04
+end</pre>
+              </li>
             </ol>
-            <h4>□ Collectionを活用する</h4>
-            <ol>
-              <p>Collectionは、モジュール、プラグイン、ロール、プレイブックなどのコンテンツを配布するための新たな仕組みです。</p>
-              <p>Ansibleの標準モジュールとは切り離して管理ができるため、Ansibleの新規バージョンのリリースを待たずに、モジュールの修正、更新、名前変更などを行うことができます。</p>
-              <p>CollectionはAnsible 2.9でフルサポートされるようになり、FortiGate用のCollectionもすでに公開しています。
-                <p>
-                  <p><a href="https://galaxy.ansible.com/fortinet/fortios">https://galaxy.ansible.com/fortinet/fortios</a></p>
-                  <p><a href="https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection">https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection</a></p>
-                  <p>Collectionのダウンロードは、ansible-galaxyコマンド、もしくは上記のgalaxyページからtar形式でダウンロードできます。</p>
-                  <p><pre>     $ ansible-galaxy collection install fortinet.fortios</pre></p> </ol>
           </div>
         </div>
       </div>
@@ -130,30 +218,118 @@
     <div class="document-content src-mc d-md-none">
       <div id="content">
         <div role="main" id="mc-main-content">
-          <h1>はじめに</h1>
-          <p>このコンテンツは、AnsibleでFortiGateを設定するためのチュートリアルです。</p>
-          <p>Ansibleの特徴である「気軽にはじめられる」を体験していただくために、さまざまな演習を用意しています。</p>
-          <p>みなさんの環境でどのように活用できるかのヒントになれれば幸いです。</p> <br>
-          <h4>□ Ansibleモジュール</h4>
-          <ol>
-            <p>Ansible 2.8より以前のFortiGate用標準モジュール(Ansibleインストール時に入るモジュール)は、ごく限られた設定項目しかカバーしていませんでした。</p>
-            <p>標準モジュールでカバーしていない項目については、fortiosconfigモジュールを使って設定が可能です。</p>
-            <p>このfortiosconfigモジュールは、<a href="https://github.com/fortinet-solutions-cse/40ansible">Github</a>で公開していますが、別途fortiosapi(pythonライブラリ)が必要です。</p>
-            <p>Ansible 2.8以降、標準モジュールを大幅に追加し、2.9ではすべての設定項目をカバーしていますので、これからAnsibleの利用を考えている方は、2.9が推奨です。</p>
-            <p>Ansible 2.8以降では、更にhttpapi(Ansibleプラグイン)に対応していますので、fortiosapi(pythonライブラリ)のインストールが不要です。</p>
-            <p>また、fortiosapiではできなかった、インベントリファイルの利用が可能になるため、ぜひAnsible 2.9をご利用ください。</p>
-            <p> <img src="/ansible_demo/img/01.png"> </p>
-          </ol>
-          <h4>□ Collectionを活用する</h4>
-          <ol>
-            <p>Collectionは、モジュール、プラグイン、ロール、プレイブックなどのコンテンツを配布するための新たな仕組みです。</p>
-            <p>Ansibleの標準モジュールとは切り離して管理ができるため、Ansibleの新規バージョンのリリースを待たずに、モジュールの修正、更新、名前変更などを行うことができます。</p>
-            <p>CollectionはAnsible 2.9でフルサポートされるようになり、FortiGate用のCollectionもすでに公開しています。
-              <p>
-                <p><a href="https://galaxy.ansible.com/fortinet/fortios">https://galaxy.ansible.com/fortinet/fortios</a></p>
-                <p><a href="https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection">https://github.com/fortinet-ansible-dev/ansible-galaxy-fortios-collection</a></p>
-                <p>Collectionのダウンロードは、ansible-galaxyコマンド、もしくは上記のgalaxyページからtar形式でダウンロードできます。</p>
-                <p><pre>     $ ansible-galaxy collection install fortinet.fortios</pre></p> </ol>
+        <h1>サンプルPlaybookの実行</h1>
+        <p>Ansibleを利用して、FortiGateにエイリアスを設定します。</p>
+        <p>ここでは、あらかじめ準備されたサンプルPlaybookを使って実行してみます。</p>
+        <p>サンプルPlaybookを使って、Playbookの実行方法や、inventoryファイルの使い方を学習します。</p> <br>
+        <h4>Playbookの実行</h4>
+        <ol>
+          <li value="1">ワークショップのディレクトリに移動
+          <pre>
+cd ~/ansible_workshop_docs/example/</pre></li>
+          <li value="2">ディレクトリ構造を確認
+          <pre>
+tree
+.
+├── gather_facts.yml
+├── inventory
+│   └── hosts
+└── set_system_global.yml</pre>
+          <p>inventoryディレクトリにhostsファイルがあります。</p>
+          <p>このファイルに、Playbookの実行対象となるホストの情報を定義します。</p>
+          </li>
+          <li value="3">inventoryファイルの確認
+          <pre>
+cat inventory/hosts
+[fortinet:children]
+fortigate
+fortimanager
+fortiadc
+
+[fortigate]
+fgt1 ansible_host=fgt1
+fgt2 ansible_host=fgt2
+[fortigate:vars]
+ansible_network_os=fortinet.fortios.fortios
+ansible_user=admin
+ansible_password=m
+vdom=root
+ansible_httpapi_use_ssl=no
+#Evaluation license only accepts HTTP(80) access
+#ansible_httpapi_use_ssl=yes
+ansible_httpapi_validate_certs=no
+ansible_python_interpreter=/usr/bin/python3
+
+[fortimanager]
+
+[fortiadc]</pre>
+          <p><code>[ ]</code>はグループを表します。</p>
+          <p><code>[fortinet]</code>グループ配下に、<code>[fortigate]</code>、<code>[fortimanager]</code>、<code>[fortiadc]</code>の3つの子グループを定義しています。</p>
+          <p><code>[fortigate]</code>グループに<code>fgt1</code>と<code>fgt2</code>の2つのホストを定義しています。</p>
+          <p>また、それらに共通する変数を<code>[fortigate:vars]</code>に定義できます。</p>
+          <p>ここでは、ログインユーザ名(<code>ansible_user</code>)、パスワード(<code>ansible_password</code>)などを定義しています。</p>
+          <p><code>[fortimanager]</code>グループと、<code>[fortiadc]</code>グループはこのワークショップでは使いませんので、空です。</p>
+          </li>
+          <li value="4">ansible.cfgにinventoryファイルのパスを設定
+          <pre>
+echo -e [defaults]\\ninventory = ~/ansible_workshop_docs/example/inventory/hosts >> ~/.ansible.cfg</pre>
+          <p>pipでAnsibleをインストールした場合、ansible.cfgは自動生成されません。</p>
+          </li>
+          <li value="5">Playbook(set_system_global.yml)の中身を確認
+          <pre>
+cat set_system_global.yml
+---
+- hosts: fortigate
+collections:
+- fortinet.fortios
+
+tasks:
+- name: configure global attributes.
+fortios_system_global:
+  vdom:  "{{ vdom }}"
+  system_global:
+    alias: "{{ ansible_host }}"</pre>
+          <p><code>hosts</code>でinventoryファイルに定義した<code>fortigate</code>グループを設定しています。</p>
+          <p><code>taks:</code>内の<code>fortios_system_global</code>はモジュール名です。</p>
+          <p>Playbookの書き方は、<code>ansible-doc &lt;モジュール名&gt;</code>コマンドで確認できます。</p>
+          </li>
+          <li value="6">Playbook実行前の確認
+          <pre>
+sshpass -p m ssh admin&#64;fgt1 show sys global
+fgt1 # config system global
+set admintimeout 480
+<code style="color: #FEF851;">set alias "FortiGate-VM64-KVM"</code>
+set hostname "fgt1"
+set timezone 04
+end</pre>
+          <pre>
+sshpass -p m ssh admin&#64;fgt2 show sys global</pre>
+          </li>
+          <li value="7">Playbookの実行
+          <pre>
+ansible-playbook set_system_global.yml
+
+PLAY [fortigate] **********************************************************************************************************************************************************
+
+TASK [Configure global attributes.] ***************************************************************************************************************************************
+changed: [fgt2]
+changed: [fgt1]
+
+PLAY RECAP ****************************************************************************************************************************************************************
+fgt1                       : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+fgt2                       : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</pre>
+          </li>
+          <li value="8">実行後の確認
+          <pre>
+sshpass -p m ssh admin$#64;fgt1 show sys global
+fgt1 # config system global
+set admintimeout 480
+<code style="color: #FEF851;">set alias "fgt1"</code>
+set hostname "fgt1"
+set timezone 04
+end</pre>
+          </li>
+        </ol>
         </div>
       </div>
     </div>
