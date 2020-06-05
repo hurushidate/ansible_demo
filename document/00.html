@@ -1,0 +1,135 @@
+<html lang="ja">
+<head>
+  <style type="text/css">
+    @charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}
+  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scale=0">
+  <title>Ansible x FortiGate</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous" >
+  <link rel="stylesheet" href="/ansible_demo/themes/v2/css/vendor.min.css">
+  <link rel="stylesheet" href="/ansible_demo/themes/v2/css/docs.v2.min.css">
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p&amp;subset=japanese" rel="stylesheet"> </head>
+<body ng-app="docs" class="ng-scope">
+  <div class="ftnt-header v3 d-flex p-3 flex-row bg-red align-items-center border-bottom box-shadow justify-content-between">
+    <div class="site-banner" onclick="window.location='#'"> <img class="docs-logo" src="/ansible_demo/img/logo.svg">
+      <h5 class="my-0 mr-md-auto font-weight-normal">Ansible チュートリアル</h5>
+    </div>
+    <div class="mobile-menu p-2 d-md-none"> <button id="mobile_menu_btn" class="navbar-toggler navbar-toggler-right navbar-icon" type="button">
+                <i class="fas fa-bars"></i>
+            </button> </div>
+    <nav class="d-none d-md-block d-lg-block d-xl-block "> </nav>
+  </div>
+  <div id="mobile_menu" class="offcanvas-collapse d-md-none">
+    <div class="version-row">
+      <h3>FortiGate x Ansible</h3>
+    </div>
+    <hr>
+    <h3>Table of Contents</h3>
+    <ul class="toc" style="padding-left: 15px">
+      <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/0.html">
+                        はじめに
+                    </a> </li>
+      <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/1.html">
+                        ラボ環境のセットアップ
+                    </a> </li>
+      <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/2.html">
+                        Collectionのダウンロード
+                    </a> </li>
+      <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/3.html">
+                        サンプルPlaybookの実行
+                    </a> </li>
+      <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/4.html">
+                        Playbookの作成
+                    </a> </li>
+      <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/5.html">
+                        インターフェース設定のPlaybook
+                    </a> </li>
+      <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/6.html">
+                        ファイアウォールポリシーの設定
+                </a> </li>
+      <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/7.html">
+                        fortiosapiを使ってみる
+            </a> </li>
+      <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/change-log.html">
+                        Change Log
+                    </a> </li>
+    </ul>
+  </div>
+  <div class="breadcrumbs  mt-md-2 mb-md-3"> <span class="item  md-hide"><a href="#">Home</a></span> <span class="item "><a href="#">FortiGate x Ansible</a></span> </div>
+  <div class="ftnt-triple-col ftnt-multi-col d-md-flex flex-md-equal w-100 my-md-3 pl-md-3 docs-document" style="height: 197px;">
+    <div class="mr-md-3 px-3 px-md-3 w-25 d-inline-block overflow-scroll column_left column-side">
+      <div class="contents py-md-2">
+        <h3> Table of contents </h3>
+        <ul class="toc" style="padding-left: 15px">
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/0.html">
+                          はじめに
+                      </a> </li>
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/1.html">
+                          ラボ環境のセットアップ
+                      </a> </li>
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/2.html">
+                          Collectionのダウンロード
+                      </a> </li>
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/3.html">
+                          サンプルPlaybookの実行
+                      </a> </li>
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/4.html">
+                          Playbookの作成
+                      </a> </li>
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/5.html">
+                          インターフェースの設定
+                      </a> </li>
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/6.html">
+                          ファイアウォールポリシーの設定
+                  </a> </li>
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/7.html">
+                          fortiosapiを使ってみる
+              </a> </li>
+          <li class="toc toc-item leaf  not-root-node "> <a class="toc" href="/ansible_demo/document/change-log.html">
+                          Change Log
+                    </a> </li>
+        </ul>
+      </div>
+    </div>
+    <div class="mr-md-3 px-3 px-md-3 w-70 d-inline-block overflow-scroll column_center">
+      <div class="document-content src-mc mt-4">
+        <div id="content">
+          <div role="main" id="mc-main-content">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-content">
+    <div class="document-content src-mc d-md-none">
+      <div id="content">
+        <div role="main" id="mc-main-content">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="side-menu d-md-none"> </div>
+  </div>
+  <footer>
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-md-auto col-12 order-md-1">
+          <ul class="socials"> </ul>
+        </div>
+        <div class="col-md-auto col-12 order-md-3"> <a href="https://www.fortinet.com/" target="_blank">
+                        <img src="/ansible_demo/img/Fortinet-logo white.png" width="150px">
+                    </a> </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+  </script>
+  <script src="/ansible_demo/themes/v2/js/vendor.min.js"></script>
+  <script src="/ansible_demo/themes/v2/js/docs.v2.min.js"></script>
+  <div class="autocomplete-suggestions " style="top: 185px; left: 32px; width: 225.062px;"></div>
+</body>
+</html>
