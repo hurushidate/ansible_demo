@@ -209,100 +209,6 @@
         </button>
     </div>
 
-    <div class="expandable ng-scope expanded" ng-class="{expanded: $ctrl.structure.showNavigation}" ng-controller="AppControls" f-with="$ctrl.state.readOnlyAdmin() as readOnlyAdmin;
-                $ctrl.usbDisk.data.auto_install_conf || $ctrl.usbDisk.data.auto_install_image as usbDiskAutoInstall">
-
-        <!-- ngIf: ::$ctrl.state.vdom_mode && !$ctrl.state.isMultiVDOMAdmin() -->
-
-        <!-- ngIf: $ctrl.state.admin.global_admin && state.ha_mode -->
-
-        <f-header-release-info class="header-button-component small-hide ng-isolate-scope"><!-- ngIf: !$ctrl.structure.hideBuildLabel && !$ctrl.isGA && !$ctrl.fortigateDebugger.capturing --><button type="button" class="bare ng-scope ng-isolate-scope" f-pop-up-menu-toggle="$ctrl.releaseInfoPopUpMenu" ng-if="!$ctrl.structure.hideBuildLabel &amp;&amp; !$ctrl.isGA &amp;&amp; !$ctrl.fortigateDebugger.capturing"><div class="flex-button-content">
-    <div class="flex-button-content" ng-transclude="">
-    <span class="ng-binding ng-scope">
-        interim
-    <!-- ngIf: $ctrl.state.isInterimBuild() --><span ng-if="$ctrl.state.isInterimBuild()" class="ng-binding ng-scope">
-        build1684
-    </span><!-- end ngIf: $ctrl.state.isInterimBuild() -->
-    </span>
-</div>
-    <div class="caret-container" ng-show="showCaret">
-        <span class="caret-down"></span>
-    </div>
-</div>
-</button><!-- end ngIf: !$ctrl.structure.hideBuildLabel && !$ctrl.isGA && !$ctrl.fortigateDebugger.capturing -->
-<!-- ngIf: $ctrl.fortigateDebugger.capturing -->
-
-</f-header-release-info>
-
-        <f-header-search class="header-button-component ng-isolate-scope"><f-global-search sources="$ctrl.sources" instance="$ctrl.searchInstance" class="ng-isolate-scope"><button type="button" class="bare ng-isolate-scope" f-pop-up-menu-toggle="searchPopup" visible="$ctrl.popupVisible"><div class="flex-button-content">
-    <div class="flex-button-content" ng-transclude="">
-    <f-icon class="ftnt-search-o ng-scope"></f-icon>
-</div>
-    <div class="caret-container" ng-show="showCaret">
-        <span class="caret-down"></span>
-    </div>
-</div>
-</button>
-</f-global-search></f-header-search>
-
-        <f-header-central-management class="header-button-component small-hide ng-isolate-scope"><!-- ngIf: $ctrl.isVisible() -->
-<!-- ngIf: $ctrl.isVisible() --></f-header-central-management>
-
-        <!-- ngIf: $ctrl.usbDisk.isVisible() -->
-        <!-- ngIf: $ctrl.usbDisk.isVisible() -->
-
-        <button type="button" class="bare" f-tip-target="" ng-click="cliConsole()" tooltip-id="_8c0jkwk27">
-            <f-icon class="fa-terminal"></f-icon>
-            <span f-tip="" display-options="::delayedTooltip" class="ng-isolate-scope"></span>
-        </button>
-
-        <button type="button" class="bare" f-tip-target="" ng-click="openFullscreen()" tooltip-id="_59zzv2qgk">
-            <f-icon class="ftnt-full-screen"></f-icon>
-            <span f-tip="" display-options="::delayedTooltip" class="ng-isolate-scope"></span>
-        </button>
-
-        <button type="button" class="bare ng-isolate-scope" f-pop-up-menu-toggle="helpPopUpMenu" f-tip-target="" tooltip-id="_dooyheit3"><div class="flex-button-content">
-    <div class="flex-button-content" ng-transclude="">
-            <f-icon class="ftnt-help-o ng-scope"></f-icon>
-            <span class="count-overlay severity-low ng-binding ng-scope ng-hide" ng-show="help.videos.length">
-                0
-            </span>
-            <span f-tip="" display-options="::delayedTooltip" class="ng-scope ng-isolate-scope"></span>
-        </div>
-    <div class="caret-container" ng-show="showCaret">
-        <span class="caret-down"></span>
-    </div>
-</div>
-</button>
-
-
-        <button type="button" class="bare ng-isolate-scope" f-pop-up-menu-toggle="notificationPopUpMenu" f-tip-target="" tooltip-id="_bjpv32h2t"><div class="flex-button-content">
-    <div class="flex-button-content" ng-transclude="">
-            <f-icon class="fa-notification ng-scope"></f-icon>
-            <span class="count-overlay severity-medium" ng-show="notification.failCount">1</span>
-            <span f-tip="" display-options="::delayedTooltip" class="ng-scope ng-isolate-scope"></span>
-        </div>
-    <div class="caret-container" ng-show="showCaret">
-        <span class="caret-down"></span>
-    </div>
-</div>
-</button>
-
-
-        <button type="button" class="bare ng-isolate-scope" f-pop-up-menu-toggle="adminPopUpMenu" ng-disabled="fortigateDebugger.capturing"><div class="flex-button-content">
-    <div class="flex-button-content" ng-transclude="">
-            <!-- ngIf: !$ctrl.state.admin.sso_sp_admin --><span ng-if="!$ctrl.state.admin.sso_sp_admin" class="admin-avatar ng-scope"></span><!-- end ngIf: !$ctrl.state.admin.sso_sp_admin -->
-            <!-- ngIf: $ctrl.state.admin.sso_sp_admin -->
-            <span class="small-hide ng-binding ng-scope">admin</span></div>
-    <div class="caret-container" ng-show="showCaret">
-        <span class="caret-down"></span>
-    </div>
-</div>
-</button></div>
-
-
-
-
     <div class="error-message-container">
         <!-- ngRepeat: msg in $ctrl.state.platform_errors -->
     </div>
@@ -763,12 +669,7 @@
         <span ng-bind-html="::menuItemCtrl.entry.htmlLabel" class="ng-binding">FortiView Sessions</span>
         <span class="number-bubble severity-low" f-notification-bubble="" navbar-entry="menuItemCtrl.entry" f-tip-target=""><!-- ngIf: $ctrl.summary.count > 0 -->
 </span>
-    </a><!-- end ngIf: ::menuItemCtrl.entry.uri -->
-    <!-- ngIf: menuItemCtrl.showNewIcon -->
-    <!-- ngIf: !menuItemCtrl.favoriteOnly && menuItemCtrl.entry.itemActions.length --><f-icon class="setting-icon fa-ellipsis-v ng-scope ng-isolate-scope" f-tip="" ng-if="!menuItemCtrl.favoriteOnly &amp;&amp; menuItemCtrl.entry.itemActions.length" ng-class="{'always-visible': menuItemCtrl.actions.visible}" ng-click="menuItemCtrl.popUpMenuToggle($event, menuItemCtrl.actions)" tooltip-id="_nf33gzsqg"></f-icon><!-- end ngIf: !menuItemCtrl.favoriteOnly && menuItemCtrl.entry.itemActions.length -->
-    <!-- ngIf: menuItemCtrl.favoriteOnly || !menuItemCtrl.entry.itemActions.length -->
-
-</div>
+    </a></div>
 </div>
     <!-- ngIf: ::!entry.uri -->
 </li><!-- end ngRepeat: entry in navbarMenuCtrl.menu.items -->
@@ -778,13 +679,12 @@
         <f-icon ng-class="navbarMenuCtrl.menu.sectionAction.icon" f-tip="" class="ng-isolate-scope fa-plus" tooltip-id="_t0fenl07w"></f-icon>
         <f-icon class="setting-icon fa-ellipsis-v ng-isolate-scope" f-tip="" ng-class="{'always-visible': navbarMenuCtrl.extraActions.visible}" ng-click="navbarMenuCtrl.popUpMenuToggle($event, navbarMenuCtrl.extraActions)" tooltip-id="_hnq8lvu30"></f-icon>
 
-    </div><!-- end ngIf: navbarMenuCtrl.menu.sectionAction -->
+    </div>
 </ul>
 </f-navbar-menu>
-    </div><!-- end ngIf: ::!entry.uri -->
-</li><!-- end ngRepeat: entry in navbarMenuCtrl.menu.items -->
-</div><!-- end ngIf: ::!navbarMenuCtrl.navbar.hasDraggable(navbarMenuCtrl.menu.items) -->
-    <!-- ngIf: navbarMenuCtrl.menu.sectionAction -->
+    </div>
+</li>
+</div>
 </ul>
 </f-navbar-menu>
                 </div><!-- end ngIf: ::!entry.uri -->
@@ -796,11 +696,6 @@
     'nav-focused': menuItemCtrl.isIndexedResult,
     'reorderable-menu-item': menuItemCtrl.reorderableFavorite || menuItemCtrl.entry.reorderableItem
 }">
-    <!-- ngIf: ::menuItemCtrl.entry.uri -->
-    <!-- ngIf: menuItemCtrl.showNewIcon -->
-    <!-- ngIf: !menuItemCtrl.favoriteOnly && menuItemCtrl.entry.itemActions.length -->
-    <!-- ngIf: menuItemCtrl.favoriteOnly || !menuItemCtrl.entry.itemActions.length --><f-icon class="favorite-icon ng-scope fa-star-o clickable" ng-if="menuItemCtrl.favoriteOnly || !menuItemCtrl.entry.itemActions.length" ng-class="menuItemCtrl.favoriteIcon" title="Add Favorite" ng-click="menuItemCtrl.toggleFavorite($event)">
-    </f-icon><!-- end ngIf: menuItemCtrl.favoriteOnly || !menuItemCtrl.entry.itemActions.length -->
 
 </div>
 </div>
