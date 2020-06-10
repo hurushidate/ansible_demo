@@ -178,7 +178,7 @@
 }
 </style><!-- ngRepeat: url in urls --><link rel="stylesheet" type="text/css" ng-repeat="url in urls" ng-href="/css/isdb_icons.css" class="ng-scope" href="/css/isdb_icons.css"><!-- end ngRepeat: url in urls --><link rel="stylesheet" type="text/css" ng-repeat="url in urls" ng-href="/css/app_icons.css" class="ng-scope" href="/css/app_icons.css"><!-- end ngRepeat: url in urls --><link rel="stylesheet" type="text/css" ng-repeat="url in urls" ng-href="/ansible_demo/document/ng/system/interface/f-interface-list.css" class="ng-scope" href="/ansible_demo/document/ng/system/interface/f-interface-list.css"><!-- end ngRepeat: url in urls --><link rel="stylesheet" type="text/css" ng-repeat="url in urls" ng-href="/ansible_demo/document/ng/components/faceplate/f-faceplate.css" class="ng-scope" href="/ansible_demo/document/ng/components/faceplate/f-faceplate.css"><!-- end ngRepeat: url in urls --><script charset="utf-8" src="/ansible_demo/document/ng/ng.chunk-136.js"></script><script charset="utf-8" src="/ansible_demo/document/ng/ng.chunk-11.js"></script><script charset="utf-8" src="/ansible_demo/document/ng/ng.chunk-94.js"></script></head>
     <body class="medium large ng-scope" ng-controller="App" data-theme="green">
-        <!-- ngIf: !guestAdmin && !structure.isViewOnly && !structure.isFullscreen --><f-header hasync="haSync" currentvdom="currentVdom" ng-if="!guestAdmin &amp;&amp; !structure.isViewOnly &amp;&amp; !structure.isFullscreen" class="ng-scope ng-isolate-scope"><header ng-class="{error: $ctrl.state.platform_errors.length}">
+        <f-header hasync="haSync" currentvdom="currentVdom" ng-if="!guestAdmin &amp;&amp; !structure.isViewOnly &amp;&amp; !structure.isFullscreen" class="ng-scope ng-isolate-scope"><header ng-class="{error: $ctrl.state.platform_errors.length}">
     <div class="fortinet-grid-icon">
         <f-icon class="ftnt-fortinet-grid icon-xxl"></f-icon>
     </div>
@@ -190,8 +190,8 @@
     </div>
 
 
-</header></f-header><!-- end ngIf: !guestAdmin && !structure.isViewOnly && !structure.isFullscreen -->
-        <!-- ngIf: guestAdmin && !structure.isViewOnly && !structure.isFullscreen -->
+</header></f-header>
+
 
         <f-disconnection-notice class="ng-isolate-scope"><!-- ngIf: $ctrl.connection.disconnected -->
 </f-disconnection-notice>
@@ -271,9 +271,7 @@
 </f-shortcuts-help>
         <f-firmware-upgrade class="ng-isolate-scope"><!-- ngIf: $ctrl.firmwareUpgrade.running -->
 </f-firmware-upgrade>
-        <!-- Feedback Collection is meant only for beta builds and should be explicitly uncommented for each beta build.
-        <f-feedback-button></f-feedback-button>
-        -->
+
         <f-debugger-capture-notice class="ng-isolate-scope"><!-- ngIf: $ctrl.debugger.capturing &&
         $ctrl.debugger.capturePhase === $ctrl.debugger.CAPTURE_PHASE.INITIATING -->
 </f-debugger-capture-notice>
@@ -303,7 +301,7 @@
                 <!-- ngIf: ::!entry.uri --><div class="submenu ng-scope" ng-if="::!entry.uri">
                     <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
                         <f-icon class="menu-item-icon fa-dashboard" ng-class="::entry.icon"></f-icon>
-                        <span class="ng-binding">Dashboard</span>
+                        <span class="ng-binding">はじめに</span>
                         <span class="spacer"></span>
 
 
@@ -541,7 +539,7 @@
                 <!-- ngIf: ::!entry.uri --><div class="submenu ng-scope" ng-if="::!entry.uri">
                     <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
                         <f-icon class="menu-item-icon fa-cog" ng-class="::entry.icon"></f-icon>
-                        <span class="ng-binding">System</span>
+                        <span class="ng-binding">ラボ環境のセットアップ</span>
                         <span class="spacer"></span>
 
 
@@ -872,7 +870,7 @@
                 <!-- ngIf: ::!entry.uri --><div class="submenu ng-scope" ng-if="::!entry.uri">
                     <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
                         <f-icon class="menu-item-icon ftnt-policy-objects" ng-class="::entry.icon"></f-icon>
-                        <span class="ng-binding">Policy &amp; Objects</span>
+                        <span class="ng-binding">サンプルPlaybookの実行</span>
                         <span class="spacer"></span>
 
 
@@ -1315,7 +1313,7 @@
                 <!-- ngIf: ::!entry.uri --><div class="submenu ng-scope" ng-if="::!entry.uri">
                     <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
                         <f-icon class="menu-item-icon fa-lock" ng-class="::entry.icon"></f-icon>
-                        <span class="ng-binding">Security Profiles</span>
+                        <span class="ng-binding">Playbookの作成</span>
                         <span class="spacer"></span>
 
 
@@ -1620,7 +1618,7 @@
                 <!-- ngIf: ::!entry.uri --><div class="submenu ng-scope" ng-if="::!entry.uri">
                     <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
                         <f-icon class="menu-item-icon fa-laptop" ng-class="::entry.icon"></f-icon>
-                        <span class="ng-binding">VPN</span>
+                        <span class="ng-binding">インターフェースの設定</span>
                         <span class="spacer"></span>
 
 
@@ -1856,7 +1854,7 @@
                 <!-- ngIf: ::!entry.uri --><div class="submenu ng-scope" ng-if="::!entry.uri">
                     <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
                         <f-icon class="menu-item-icon fa-user" ng-class="::entry.icon"></f-icon>
-                        <span class="ng-binding">User &amp; Authentication</span>
+                        <span class="ng-binding">FWポリシーの設定</span>
                         <span class="spacer"></span>
 
 
@@ -2092,7 +2090,7 @@
                 <!-- ngIf: ::!entry.uri --><div class="submenu ng-scope" ng-if="::!entry.uri">
                     <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
                         <f-icon class="menu-item-icon fa-wifi" ng-class="::entry.icon"></f-icon>
-                        <span class="ng-binding">WiFi &amp; Switch Controller</span>
+                        <span class="ng-binding">Collectionの活用</span>
                         <span class="spacer"></span>
 
 
@@ -2282,7 +2280,7 @@
                 <!-- ngIf: ::!entry.uri --><div class="submenu ng-scope" ng-if="::!entry.uri">
                     <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
                         <f-icon class="menu-item-icon fa-bar-chart" ng-class="::entry.icon"></f-icon>
-                        <span class="ng-binding">Log &amp; Report</span>
+                        <span class="ng-binding">参考資料</span>
                         <span class="spacer"></span>
 
 
@@ -2744,71 +2742,4 @@
 <div class="view-container">
 </div>
 </f-navbar-view-section>
-
-
-<div class="notify-messages"></div><div f-pop-up-menu="adminPopUpMenu" class="ng-isolate-scope hidden pop-up-menu">
-            <f-header-admin-menu class="ng-scope ng-isolate-scope"><div class="info-text ng-binding">
-    FortiGate VM64
-</div>
-<div class="info-text ng-binding">
-    v6.4.0 build1684 (interim)
-</div>
-
-<div class="separator"></div>
-
-<!-- ngIf: $ctrl.powerControlsVisible --><!-- end ngIf: $ctrl.powerControlsVisible -->
-
-<!-- ngIf: ::$ctrl.configurationControlsVisible --><!-- end ngIf: ::$ctrl.configurationControlsVisible -->
-
-<!-- ngIf: ::$ctrl.powerControlsVisible || $ctrl.configurationControlsVisible --><div class="separator ng-scope" ng-if="::$ctrl.powerControlsVisible || $ctrl.configurationControlsVisible">
-</div><!-- end ngIf: ::$ctrl.powerControlsVisible || $ctrl.configurationControlsVisible -->
-
-<!-- ngIf: ::!$ctrl.state.admin.pki_admin && !$ctrl.state.admin.remote_admin && !$ctrl.state.admin.sso_sp_admin --><div f-menu-item-button="" click="$ctrl.changePassword()" ng-if="::!$ctrl.state.admin.pki_admin &amp;&amp; !$ctrl.state.admin.remote_admin &amp;&amp; !$ctrl.state.admin.sso_sp_admin" class="ng-scope ng-isolate-scope menu-item"><button type="button" ng-class="{'selected': selected, emphasized: emphasized}" class="" ng-disabled="disabled()" ng-click="onClick($event)">
-    <div class="flex-button-content" ng-transclude="">
-    <f-icon class="fa-lock ng-scope"></f-icon>
-    <span class="ng-binding ng-scope">Change Password</span>
-</div>
-</button>
-</div><!-- end ngIf: ::!$ctrl.state.admin.pki_admin && !$ctrl.state.admin.remote_admin && !$ctrl.state.admin.sso_sp_admin -->
-<!-- ngIf: ::$ctrl.state.admin.remote_admin && !$ctrl.state.admin.remote_wildcard_admin -->
-<div f-menu-item-button="" click="$ctrl.logout()" class="ng-isolate-scope menu-item"><button type="button" ng-class="{'selected': selected, emphasized: emphasized}" class="" ng-disabled="disabled()" ng-click="onClick($event)">
-    <div class="flex-button-content" ng-transclude="">
-    <f-icon class="fa-sign-out ng-scope"></f-icon>
-    <span class="ng-binding ng-scope">Logout</span>
-</div>
-</button>
-</div>
-</f-header-admin-menu>
-        </div><div f-pop-up-menu="menuItemCtrl.actions" class="ng-isolate-scope hidden pop-up-menu">
-        <!-- ngRepeat: action in menuItemCtrl.entry.itemActions -->
-        <!-- ngIf: :: !menuItemCtrl.disableFavorite && menuItemCtrl.entry.uri && !menuItemCtrl.entry.temporary -->
-    </div><div f-pop-up-menu="menuItemCtrl.actions" class="ng-isolate-scope hidden pop-up-menu">
-        <!-- ngRepeat: action in menuItemCtrl.entry.itemActions -->
-        <!-- ngIf: :: !menuItemCtrl.disableFavorite && menuItemCtrl.entry.uri && !menuItemCtrl.entry.temporary -->
-    </div><div f-pop-up-menu="menuItemCtrl.actions" class="ng-isolate-scope hidden pop-up-menu">
-        <!-- ngRepeat: action in menuItemCtrl.entry.itemActions -->
-        <!-- ngIf: :: !menuItemCtrl.disableFavorite && menuItemCtrl.entry.uri && !menuItemCtrl.entry.temporary -->
-    </div><div f-pop-up-menu="menuItemCtrl.actions" class="ng-isolate-scope hidden pop-up-menu">
-        <!-- ngRepeat: action in menuItemCtrl.entry.itemActions -->
-        <!-- ngIf: :: !menuItemCtrl.disableFavorite && menuItemCtrl.entry.uri && !menuItemCtrl.entry.temporary -->
-    </div><div f-pop-up-menu="menuItemCtrl.actions" class="ng-isolate-scope hidden pop-up-menu">
-        <!-- ngRepeat: action in menuItemCtrl.entry.itemActions -->
-        <!-- ngIf: :: !menuItemCtrl.disableFavorite && menuItemCtrl.entry.uri && !menuItemCtrl.entry.temporary -->
-    </div><div f-pop-up-menu="menuItemCtrl.actions" class="ng-isolate-scope hidden pop-up-menu">
-        <!-- ngRepeat: action in menuItemCtrl.entry.itemActions -->
-        <!-- ngIf: :: !menuItemCtrl.disableFavorite && menuItemCtrl.entry.uri && !menuItemCtrl.entry.temporary -->
-    </div><div f-pop-up-menu="menuItemCtrl.actions" class="ng-isolate-scope hidden pop-up-menu">
-        <!-- ngRepeat: action in menuItemCtrl.entry.itemActions -->
-        <!-- ngIf: :: !menuItemCtrl.disableFavorite && menuItemCtrl.entry.uri && !menuItemCtrl.entry.temporary -->
-    </div><div f-pop-up-menu="menuItemCtrl.actions" class="ng-isolate-scope hidden pop-up-menu">
-        <!-- ngRepeat: action in menuItemCtrl.entry.itemActions -->
-        <!-- ngIf: :: !menuItemCtrl.disableFavorite && menuItemCtrl.entry.uri && !menuItemCtrl.entry.temporary -->
-    </div><div f-pop-up-menu="menuItemCtrl.actions" class="ng-isolate-scope hidden pop-up-menu">
-        <!-- ngRepeat: action in menuItemCtrl.entry.itemActions -->
-        <!-- ngIf: :: !menuItemCtrl.disableFavorite && menuItemCtrl.entry.uri && !menuItemCtrl.entry.temporary -->
-    </div><div f-pop-up-menu="menuItemCtrl.actions" class="ng-isolate-scope hidden pop-up-menu">
-        <!-- ngRepeat: action in menuItemCtrl.entry.itemActions -->
-        <!-- ngIf: :: !menuItemCtrl.disableFavorite && menuItemCtrl.entry.uri && !menuItemCtrl.entry.temporary -->
-    </div>
-
 </body></html>
