@@ -306,8 +306,8 @@
 }"> </div>
               </div>
               <div class="submenu ng-scope" ng-if="::!entry.uri">
-                <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
-                  <f-icon class="menu-item-icon fa-dashboard" ng-class="::entry.icon"></f-icon> <span class="ng-binding">はじめに</span> <span class="spacer"></span> </div></div>
+                <a ng-href="/ansible_demo/document/0.html" ng-if="::menuItemCtrl.entry.uri" class="submenu-label" href="/ansible_demo/document/0.html">
+                  <f-icon class="menu-item-icon fa-dashboard" ng-class="::entry.icon"></f-icon> <span class="ng-binding">はじめに</span> <span class="spacer"></span> </a></div>
 
 
             </li>
@@ -321,8 +321,8 @@
 }"> </div>
               </div>
               <div class="submenu ng-scope" ng-if="::!entry.uri">
-                <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
-                  <f-icon class="menu-item-icon fa-cog" ng-class="::entry.icon"></f-icon> <span class="ng-binding">ラボ環境のセットアップ</span> <span class="spacer"></span> </div>
+                <a ng-href="/ansible_demo/document/1.html" ng-if="::menuItemCtrl.entry.uri" class="submenu-label" href="/ansible_demo/document/1.html">
+                  <f-icon class="menu-item-icon fa-cog" ng-class="::entry.icon"></f-icon> <span class="ng-binding">ラボ環境のセットアップ</span> <span class="spacer"></span> </a>
 
               </div>
             </li>
@@ -336,8 +336,8 @@
 }"> </div>
               </div>
               <div class="submenu ng-scope" ng-if="::!entry.uri">
-                <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
-                  <f-icon class="fa-play-circle" ng-class="::entry.icon"></f-icon> <span class="ng-binding">サンプルPlaybookの実行</span> <span class="spacer"></span> </div>
+                <a ng-href="/ansible_demo/document/2.html" ng-if="::menuItemCtrl.entry.uri" class="submenu-label" href="/ansible_demo/document/2.html">
+                  <f-icon class="fa-play-circle" ng-class="::entry.icon"></f-icon> <span class="ng-binding">サンプルPlaybookの実行</span> <span class="spacer"></span> </a>
 
               </div>
             </li>
@@ -351,8 +351,21 @@
 }"> </div>
               </div>
               <div class="submenu ng-scope" ng-if="::!entry.uri">
-                <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
-                  <f-icon class="fa-file-text-o ng-scope" ng-class="::entry.icon"></f-icon> <span class="ng-binding">Playbookの作成</span> <span class="spacer"></span> </div>
+                <a ng-href="/ansible_demo/document/3.html" ng-if="::menuItemCtrl.entry.uri" class="submenu-label" href="/ansible_demo/document/3.html">  <f-icon class="fa-file-text-o ng-scope" ng-class="::entry.icon"></f-icon> <span class="ng-binding">Playbookの作成</span> <span class="spacer"></span> </a>
+</div>
+            </li>
+            <li ng-repeat="entry in navbarCtrl.navbar.tree.items" class="level-0 ng-scope" ng-class="{'expanded-menu': navbarCtrl.navbar.isExpanded(entry.name),
+                    'navbar-selected': navbarCtrl.navbar.isSelected(entry)}">
+              <div f-navbar-menu-item="::entry" class="ng-isolate-scope menu-item">
+                <div ng-class="{
+    selected: menuItemCtrl.navbar.isSelected(menuItemCtrl.entry),
+    'nav-focused': menuItemCtrl.isIndexedResult,
+    'reorderable-menu-item': menuItemCtrl.reorderableFavorite || menuItemCtrl.entry.reorderableItem
+}"> </div>
+              </div>
+              <div class="submenu ng-scope" ng-if="::!entry.uri">
+                <a ng-href="/ansible_demo/document/4.html" ng-if="::menuItemCtrl.entry.uri" class="submenu-label" href="/ansible_demo/document/4.html">
+                  <f-icon class="ftnt-interface" ng-class="::entry.icon"></f-icon> <span class="ng-binding">インターフェースの設定</span> <span class="spacer"></span> </a>
 
               </div>
             </li>
@@ -366,8 +379,8 @@
 }"> </div>
               </div>
               <div class="submenu ng-scope" ng-if="::!entry.uri">
-                <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
-                  <f-icon class="ftnt-interface" ng-class="::entry.icon"></f-icon> <span class="ng-binding">インターフェースの設定</span> <span class="spacer"></span> </div>
+                <a ng-href="/ansible_demo/document/5.html" ng-if="::menuItemCtrl.entry.uri" class="submenu-label" href="/ansible_demo/document/5.html">
+                  <f-icon class="menu-item-icon ftnt-policy-objects" ng-class="::entry.icon"></f-icon> <span class="ng-binding">FWポリシーの設定</span> <span class="spacer"></span> </a>
 
               </div>
             </li>
@@ -381,8 +394,8 @@
 }"> </div>
               </div>
               <div class="submenu ng-scope" ng-if="::!entry.uri">
-                <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
-                  <f-icon class="menu-item-icon ftnt-policy-objects" ng-class="::entry.icon"></f-icon> <span class="ng-binding">FWポリシーの設定</span> <span class="spacer"></span> </div>
+                <a ng-href="/ansible_demo/document/6.html" ng-if="::menuItemCtrl.entry.uri" class="submenu-label" href="/ansible_demo/document/6.html">
+                  <f-icon class="ftnt-external-resource-category" ng-class="::entry.icon"></f-icon> <span class="ng-binding">Collectionの活用</span> <span class="spacer"></span> </a>
 
               </div>
             </li>
@@ -396,23 +409,8 @@
 }"> </div>
               </div>
               <div class="submenu ng-scope" ng-if="::!entry.uri">
-                <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
-                  <f-icon class="ftnt-external-resource-category" ng-class="::entry.icon"></f-icon> <span class="ng-binding">Collectionの活用</span> <span class="spacer"></span> </div>
-
-              </div>
-            </li>
-            <li ng-repeat="entry in navbarCtrl.navbar.tree.items" class="level-0 ng-scope" ng-class="{'expanded-menu': navbarCtrl.navbar.isExpanded(entry.name),
-                    'navbar-selected': navbarCtrl.navbar.isSelected(entry)}">
-              <div f-navbar-menu-item="::entry" class="ng-isolate-scope menu-item">
-                <div ng-class="{
-    selected: menuItemCtrl.navbar.isSelected(menuItemCtrl.entry),
-    'nav-focused': menuItemCtrl.isIndexedResult,
-    'reorderable-menu-item': menuItemCtrl.reorderableFavorite || menuItemCtrl.entry.reorderableItem
-}"> </div>
-              </div>
-              <div class="submenu ng-scope" ng-if="::!entry.uri">
-                <div class="submenu-label" ng-click="navbarCtrl.navbar.entryClicked(entry)">
-                  <f-icon class="fa-book" ng-class="::entry.icon"></f-icon> <span class="ng-binding">参考資料</span> <span class="spacer"></span> </div>
+                <a ng-href="/ansible_demo/document/7.html" ng-if="::menuItemCtrl.entry.uri" class="submenu-label" href="/ansible_demo/document/7.html">
+                  <f-icon class="fa-book" ng-class="::entry.icon"></f-icon> <span class="ng-binding">参考資料</span> <span class="spacer"></span> </a>
 
               </div>
             </li>
@@ -425,6 +423,7 @@
     </nav>
     <div class="view-container"> </div>
   </f-navbar-view-section>
+
 
 
 
