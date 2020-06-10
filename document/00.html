@@ -1,5 +1,4 @@
-<html class="main-app ng-scope" lang="en">
-<head class="ng-scope">
+<html class="main-app ng-scope" lang="en"><head class="ng-scope">
   <style type="text/css">
     @charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}
   </style>
@@ -204,7 +203,7 @@
     </header>
   </f-header>
   <f-disconnection-notice class="ng-isolate-scope">
-    <!-- ngIf: $ctrl.connection.disconnected -->
+
   </f-disconnection-notice>
   <f-shortcuts-help>
     <div class="prompt unbounded masking ng-hide" ng-show="shortcutsHelp.shortcuts.showHelp">
@@ -281,14 +280,13 @@
     </div>
   </f-shortcuts-help>
   <f-firmware-upgrade class="ng-isolate-scope">
-    <!-- ngIf: $ctrl.firmwareUpgrade.running -->
+
   </f-firmware-upgrade>
   <f-debugger-capture-notice class="ng-isolate-scope">
-    <!-- ngIf: $ctrl.debugger.capturing &&
-        $ctrl.debugger.capturePhase === $ctrl.debugger.CAPTURE_PHASE.INITIATING -->
+
   </f-debugger-capture-notice>
   <f-navbar-view-section id="navbar-view-section" class="ng-isolate-scope">
-    <!-- ngIf: !$ctrl.structure.navigationDisabled && !$ctrl.structure.isViewOnly -->
+
     <nav f-navbar="" ng-if="!$ctrl.structure.navigationDisabled &amp;&amp; !$ctrl.structure.isViewOnly" ng-class="{expanded: $ctrl.structure.showNavigation, 'with-toggle': $ctrl.structure.isFullscreen}" class="ng-scope expanded">
       <div class="nav-container">
         <div class="nav-contents">
@@ -2012,5 +2010,6 @@
     </nav>
     <div class="view-container"> </div>
   </f-navbar-view-section>
-</body>
-</html>
+
+
+</body></html>
